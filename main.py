@@ -26,7 +26,7 @@ class MathTrainer(QStackedWidget):
         self.sign = "+"
         self.var = 10
         
-        self.ui.combo_box.currentTextChanged.connect(self.on_combobox_select)
+        self.ui.combo_box.currentIndexChanged.connect(self.on_combobox_select)
         self.ui.check_button.clicked.connect(self.check_button_click)
         self.ui.skip_button.clicked.connect(self.skip_button_click)
 
@@ -44,8 +44,8 @@ class MathTrainer(QStackedWidget):
         self.ui.solved_label.setText(f"{self.solved_label_text} {self.solved}")
         self.ui.mistakes_label.setText(f"{self.mistakes_label_text} {self.mistakes}")
 
-    def on_combobox_select(self, text):
-        if text == "Addition within 100":
+    def on_combobox_select(self, index):
+        if index == 0:
             self.sign = "+"
             self.var = 1
         else:
