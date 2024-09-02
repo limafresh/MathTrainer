@@ -26,7 +26,7 @@ class MathTrainer(QStackedWidget):
         self.sign = "+"
         self.var = 10
         
-        self.ui.combo_box.currentIndexChanged.connect(self.on_combobox_select)
+        self.ui.combobox.currentIndexChanged.connect(self.on_combobox_select)
         self.ui.check_button.clicked.connect(self.check_button_click)
         self.ui.skip_button.clicked.connect(self.skip_button_click)
 
@@ -64,7 +64,7 @@ class MathTrainer(QStackedWidget):
             correct_answer = self.a * self.b
             
         if self.ui.input_field.text() == str(correct_answer):
-            audio_url = QUrl.fromLocalFile("bell.wav")
+            audio_url = QUrl.fromLocalFile("sounds/bell.wav")
             self.player.setSource(audio_url)
             self.player.play()
             
@@ -76,7 +76,7 @@ class MathTrainer(QStackedWidget):
         elif self.ui.input_field.text() == "":
             pass
         else:
-            audio_url = QUrl.fromLocalFile("losetrumpet.wav")
+            audio_url = QUrl.fromLocalFile("sounds/losetrumpet.wav")
             self.player.setSource(audio_url)
             self.player.play()
             
@@ -104,7 +104,7 @@ if __name__ == "__main__":
     # Translate app
     locale = QLocale.system().name()
     translator = QTranslator()
-    if translator.load(f"ui_{locale}.qm"):
+    if translator.load(f"locales/ui_{locale}.qm"):
         app.installTranslator(translator)
         
     application = MathTrainer()
