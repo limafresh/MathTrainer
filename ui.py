@@ -21,12 +21,12 @@ class Ui_StackedWidget(object):
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        self.combo_box = QtWidgets.QComboBox(parent=self.page)
+        self.combobox = QtWidgets.QComboBox(parent=self.page)
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
-        self.combo_box.setFont(font)
-        self.combo_box.setStyleSheet("QComboBox {\n"
+        self.combobox.setFont(font)
+        self.combobox.setStyleSheet("QComboBox {\n"
 "    color: rgb(255, 255, 255);\n"
 "    background-color: rgb(145, 65, 172);\n"
 "    border-radius: 10px;\n"
@@ -41,13 +41,15 @@ class Ui_StackedWidget(object):
 "QComboBox QAbstractItemView {\n"
 "    border-radius: 10px;\n"
 "    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(145, 65, 172);\n"
+"    background-color: rgb(36, 31, 49);\n"
+"    border: 2px solid;\n"
+"    border-color: rgb(145, 65, 172);\n"
 "    padding: 5px;\n"
 "}")
-        self.combo_box.setObjectName("combo_box")
-        self.combo_box.addItem("")
-        self.combo_box.addItem("")
-        self.verticalLayout.addWidget(self.combo_box)
+        self.combobox.setObjectName("combobox")
+        self.combobox.addItem("")
+        self.combobox.addItem("")
+        self.verticalLayout.addWidget(self.combobox)
         self.example_label = QtWidgets.QLabel(parent=self.page)
         font = QtGui.QFont()
         font.setPointSize(36)
@@ -194,8 +196,8 @@ class Ui_StackedWidget(object):
     def retranslateUi(self, StackedWidget):
         _translate = QtCore.QCoreApplication.translate
         StackedWidget.setWindowTitle(_translate("StackedWidget", "Math trainer"))
-        self.combo_box.setItemText(0, _translate("StackedWidget", "Addition within 100"))
-        self.combo_box.setItemText(1, _translate("StackedWidget", "Multiplication within 10"))
+        self.combobox.setItemText(0, _translate("StackedWidget", "Addition within 100"))
+        self.combobox.setItemText(1, _translate("StackedWidget", "Multiplication within 10"))
         self.example_label.setText(_translate("StackedWidget", "5+5="))
         self.input_field.setPlaceholderText(_translate("StackedWidget", "Enter the answer..."))
         self.check_button.setText(_translate("StackedWidget", "CHECK"))
