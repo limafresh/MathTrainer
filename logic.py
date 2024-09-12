@@ -25,7 +25,7 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.a = randint(10, 99)
         self.b = randint(10, 99)
         self.sign = "+"
-        self.var = 10
+        self.var = 1
         
         self.combobox.currentIndexChanged.connect(self.on_combobox_select)
         self.check_button.clicked.connect(self.check_button_click)
@@ -41,6 +41,7 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.mistakes = 0
         
         self.example_label.setText(str(self.a) + self.sign + str(self.b) + "=")
+        self.input_field.setText("")
         self.skipped_label.setText(f"{self.skipped_label_text} {self.skipped}")
         self.solved_label.setText(f"{self.solved_label_text} {self.solved}")
         self.mistakes_label.setText(f"{self.mistakes_label_text} {self.mistakes}")
@@ -57,7 +58,6 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.b = int(randint(10, 99)/self.var)
             
         self.reset_counters()
-        self.input_field.setText("")
         
     def check_button_click(self):
         if self.sign == "+":
@@ -66,11 +66,8 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
             correct_answer = self.a * self.b
             
         if self.input_field.text() == str(correct_answer):
-            audio_url = QUrl.fromLocalFile("sounds/bell.wav")
-            self.player.setSource(audio_url)
-            self.player.play()
-            
-            self.setCurrentIndex(1) # Show result page
+            self.play_sound("sounds/bell.wav")
+            self.setCurrentIndex(1) # Show page with "Correctly"
             QTimer.singleShot(1000, lambda: self.setCurrentIndex(0)) # Go back
             self.solved = self.solved + 1
             self.solved_label.setText(f"{self.solved_label_text} {self.solved}")
@@ -78,11 +75,8 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         elif self.input_field.text() == "":
             pass
         else:
-            audio_url = QUrl.fromLocalFile("sounds/losetrumpet.wav")
-            self.player.setSource(audio_url)
-            self.player.play()
-            
-            self.setCurrentIndex(2) # Show result page
+            self.play_sound("sounds/losetrumpet.wav")
+            self.setCurrentIndex(2) # Show page with "Wrongly"
             QTimer.singleShot(1000, lambda: self.setCurrentIndex(0)) # Go back
             self.mistakes = self.mistakes + 1
             self.mistakes_label.setText(f"{self.mistakes_label_text} {self.mistakes}")
@@ -96,9 +90,14 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
     def next_example(self):
         self.a = int(randint(10, 99)/self.var)
         self.b = int(randint(10, 99)/self.var)
-            
-        self.example_label.setText(str(self.a) + self.sign + str(self.b) + "=")
+
+        self.example_label.setText(f"{self.a}{self.sign}{self.b}=")
         self.input_field.setText("")
+
+    def play_sound(self, sound):
+        audio_url = QUrl.fromLocalFile(sound)
+        self.player.setSource(audio_url)
+        self.player.play()
         
 if __name__ == "__main__":
     app = QApplication([])
