@@ -13,8 +13,11 @@ A math trainer for kids written in Python and PyQt 6. It includes addition withi
 The application generates an example with random numbers. You need to enter the correct answer to it and click the "CHECK" button.
 
 # Additional information  
-+ `main.py` - сontains application logic. **This is what you need to launch.**
-+ `ui.ui` - Qt Designer design file.
-+ `ui.py` - contains the interface. This is the `ui.ui` file converted by the *pyuic* utility and is required to run `main.py`.
++ `logic.py` - сontains application logic. **This is what you need to launch.**
++ `ui.ui` - Qt Designer file, contains application UI.
 + `folder "locales":` `.ts` files - Qt Linguist files, `.qm` files - locale files compiled from `.ts` by *lrelease* utility.
 + Sound effects authors: Fupy, 0new4y; from *opengameart.org* .
+
+# Versions used in development
++ Qt 6.4.2
++ Python 3.11.2
