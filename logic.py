@@ -67,8 +67,8 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
             
         if self.input_field.text() == str(correct_answer):
             self.play_sound("sounds/bell.wav")
-            self.setCurrentIndex(1) # Show page with "Correctly"
-            QTimer.singleShot(1000, lambda: self.setCurrentIndex(0)) # Go back
+            self.setCurrentWidget(self.correctly_page) # Show page with "Correctly"
+            QTimer.singleShot(1000, lambda: self.setCurrentWidget(self.main_page)) # Go back
             self.solved = self.solved + 1
             self.solved_label.setText(f"{self.solved_label_text} {self.solved}")
             self.next_example()
@@ -76,8 +76,8 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
             pass
         else:
             self.play_sound("sounds/losetrumpet.wav")
-            self.setCurrentIndex(2) # Show page with "Wrongly"
-            QTimer.singleShot(1000, lambda: self.setCurrentIndex(0)) # Go back
+            self.setCurrentWidget(self.wrongly_page) # Show page with "Wrongly"
+            QTimer.singleShot(1000, lambda: self.setCurrentWidget(self.main_page)) # Go back
             self.mistakes = self.mistakes + 1
             self.mistakes_label.setText(f"{self.mistakes_label_text} {self.mistakes}")
             self.next_example()
