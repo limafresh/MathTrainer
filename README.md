@@ -13,7 +13,7 @@ A math trainer for kids written in Python and PyQt 6. It includes addition withi
 The application generates an example with random numbers. You need to enter the correct answer to it and click the "CHECK" button.
 
 # Additional information  
-+ `logic.py` - сontains application logic. **This is what you need to launch.**
++ `main.py` - сontains application logic. **This is what you need to launch.**
 + `ui.ui` - Qt Designer file, contains application UI.
 + `folder "locales":` `.ts` files - Qt Linguist files, `.qm` files - locale files compiled from `.ts` by *lrelease* utility.
 + Sound effects authors: Fupy, 0new4y; from *opengameart.org* .
