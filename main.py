@@ -7,6 +7,7 @@ from PyQt6.uic import loadUiType
 
 Ui_StackedWidget, QtBaseClass = loadUiType("ui.ui")
 
+
 class MathTrainer(QStackedWidget, Ui_StackedWidget):
     def __init__(self):
         super(MathTrainer, self).__init__()
@@ -17,7 +18,7 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.player = QMediaPlayer()
         self.audio_output = QAudioOutput()
         self.player.setAudioOutput(self.audio_output)
-        
+
         self.skipped_label_text = self.skipped_label.text()
         self.solved_label_text = self.solved_label.text()
         self.mistakes_label_text = self.mistakes_label.text()
@@ -26,7 +27,7 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.b = randint(10, 99)
         self.sign = "+"
         self.var = 1
-        
+
         self.combobox.currentIndexChanged.connect(self.on_combobox_select)
         self.check_button.clicked.connect(self.check_button_click)
         self.skip_button.clicked.connect(self.skip_button_click)
@@ -39,7 +40,7 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.skipped = 0
         self.solved = 0
         self.mistakes = 0
-        
+
         self.example_label.setText(str(self.a) + self.sign + str(self.b) + "=")
         self.input_field.setText("")
         self.skipped_label.setText(f"{self.skipped_label_text} {self.skipped}")
@@ -56,19 +57,19 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
 
         self.a = int(randint(10, 99)/self.var)
         self.b = int(randint(10, 99)/self.var)
-            
+
         self.reset_counters()
-        
+
     def check_button_click(self):
         if self.sign == "+":
             correct_answer = self.a + self.b
         else:
             correct_answer = self.a * self.b
-            
+
         if self.input_field.text() == str(correct_answer):
             self.play_sound("sounds/bell.wav")
-            self.setCurrentWidget(self.correctly_page) # Show page with "Correctly"
-            QTimer.singleShot(1000, lambda: self.setCurrentWidget(self.main_page)) # Go back
+            self.setCurrentWidget(self.correctly_page)  # Show page with "Correctly"
+            QTimer.singleShot(1000, lambda: self.setCurrentWidget(self.main_page))  # Go back
             self.solved = self.solved + 1
             self.solved_label.setText(f"{self.solved_label_text} {self.solved}")
             self.next_example()
@@ -76,8 +77,8 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
             pass
         else:
             self.play_sound("sounds/losetrumpet.wav")
-            self.setCurrentWidget(self.wrongly_page) # Show page with "Wrongly"
-            QTimer.singleShot(1000, lambda: self.setCurrentWidget(self.main_page)) # Go back
+            self.setCurrentWidget(self.wrongly_page)  # Show page with "Wrongly"
+            QTimer.singleShot(1000, lambda: self.setCurrentWidget(self.main_page))  # Go back
             self.mistakes = self.mistakes + 1
             self.mistakes_label.setText(f"{self.mistakes_label_text} {self.mistakes}")
             self.next_example()
@@ -98,7 +99,8 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         audio_url = QUrl.fromLocalFile(sound)
         self.player.setSource(audio_url)
         self.player.play()
-        
+
+
 if __name__ == "__main__":
     app = QApplication([])
 
@@ -107,7 +109,7 @@ if __name__ == "__main__":
     translator = QTranslator()
     if translator.load(f"locales/ui_{locale}.qm"):
         app.installTranslator(translator)
-        
+
     application = MathTrainer()
     application.show()
     sys.exit(app.exec())
