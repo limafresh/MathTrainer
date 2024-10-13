@@ -7,7 +7,7 @@
 
 A math trainer for kids written in Python and PyQt 6. It includes addition within 100 and multiplication within 10.
 
-![Math trainer running on KDE Plasma 5.27 desktop](https://github.com/l1mafresh/MathTrainer/blob/main/screenshot.png)
+![Math trainer running on KDE Plasma 5.27 desktop](https://raw.githubusercontent.com/limafresh/MathTrainer/main/screenshot.png)
 
 # How to use  
 The application generates an example with random numbers. You need to enter the correct answer to it and click the "CHECK" button.
