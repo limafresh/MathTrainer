@@ -9,15 +9,26 @@ A math trainer for kids written in Python and PyQt 6. It includes addition withi
 
 ![Math trainer running on KDE Plasma 5.27 desktop](https://raw.githubusercontent.com/limafresh/MathTrainer/main/screenshot.png)
 
-# How to use  
+## Installation
+### Via pip
+```
+pip install math-trainer
+```
+### From source
+```
+git clone https://github.com/limafresh/MathTrainer.git
+```
+```
+cd MathTrainer
+```
+```
+pip install .
+```
+
+## Usage
+```
+math-trainer
+```
+
+## How to use  
 The application generates an example with random numbers. You need to enter the correct answer to it and click the "CHECK" button.
-
-# Additional information  
-+ `main.py` - сontains application logic. **This is what you need to launch.**
-+ `ui.ui` - Qt Designer file, contains application UI.
-+ `folder "locales":` `.ts` files - Qt Linguist files, `.qm` files - locale files compiled from `.ts` by *lrelease* utility.
-+ Sound effects authors: Fupy, 0new4y; from *opengameart.org* .
-
-# Versions used in development
-+ Qt 6.4.2
-+ Python 3.11.2

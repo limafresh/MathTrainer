@@ -1,0 +1,3 @@
+recursive-include src/math_trainer/locales *.qm
+recursive-include src/math_trainer/sounds *.wav
+recursive-include src/math_trainer/ ui.ui
