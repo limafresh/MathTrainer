@@ -1,11 +1,12 @@
 import sys
+from os.path import join, dirname
 from random import randint
 from PyQt6.QtWidgets import QApplication, QStackedWidget
 from PyQt6.QtMultimedia import QMediaPlayer, QAudioOutput
 from PyQt6.QtCore import QLocale, QTranslator, QTimer, QUrl
 from PyQt6.uic import loadUiType
 
-Ui_StackedWidget, QtBaseClass = loadUiType("ui.ui")
+Ui_StackedWidget, QtBaseClass = loadUiType(join(dirname(__file__), "ui.ui"))
 
 
 class MathTrainer(QStackedWidget, Ui_StackedWidget):
@@ -67,7 +68,7 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
             correct_answer = self.a * self.b
 
         if self.input_field.text() == str(correct_answer):
-            self.play_sound("sounds/bell.wav")
+            self.play_sound(join(dirname(__file__), "sounds", "bell.wav"))
             self.setCurrentWidget(self.correctly_page)  # Show page with "Correctly"
             QTimer.singleShot(1000, lambda: self.setCurrentWidget(self.main_page))  # Go back
             self.solved = self.solved + 1
@@ -76,7 +77,7 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         elif self.input_field.text() == "":
             pass
         else:
-            self.play_sound("sounds/losetrumpet.wav")
+            self.play_sound(join(dirname(__file__), "sounds", "losetrumpet.wav"))
             self.setCurrentWidget(self.wrongly_page)  # Show page with "Wrongly"
             QTimer.singleShot(1000, lambda: self.setCurrentWidget(self.main_page))  # Go back
             self.mistakes = self.mistakes + 1
@@ -101,15 +102,19 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.player.play()
 
 
-if __name__ == "__main__":
+def main():
     app = QApplication([])
 
     # Translate app
     locale = QLocale.system().name()
     translator = QTranslator()
-    if translator.load(f"locales/ui_{locale}.qm"):
+    if translator.load(join(dirname(__file__), "locales", f"ui_{locale}.qm")):
         app.installTranslator(translator)
 
     application = MathTrainer()
     application.show()
     sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()

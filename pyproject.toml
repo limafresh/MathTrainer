@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "math-trainer"
+version = "1.0.0"
+dependencies = [
+  "PyQt6>=6.4.2",
+]
+requires-python = ">= 3.8"
+authors = [
+  {name = "limafresh"},
+]
+description = "A math trainer for kids written in Python and PyQt 6."
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {file = "LICENSE"}
+keywords = ["math-trainer", "project", "pyqt", "pyqt6", "educational", "pip", "gui-project"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Intended Audience :: End Users/Desktop",
+  "Environment :: X11 Applications :: Qt",
+  "Topic :: Education",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Natural Language :: Ukrainian",
+  "Natural Language :: Russian",
+  "Natural Language :: English",
+]
+
+[project.gui-scripts]
+math-trainer = "math_trainer.main:main"
+
+[project.urls]
+Repository = "https://github.com/limafresh/MathTrainer"
+Issues = "https://github.com/limafresh/MathTrainer/issues"
