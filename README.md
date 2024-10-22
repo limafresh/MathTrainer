@@ -4,6 +4,7 @@
 ![Static Badge](https://img.shields.io/badge/PyQt-6-green)
 ![Static Badge](https://img.shields.io/badge/Made_with-Qt_Designer-green)
 ![Static Badge](https://img.shields.io/badge/Translated_with-Qt_Linguist-green)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 A math trainer for kids written in Python and PyQt 6. It includes addition within 100 and multiplication within 10.
 

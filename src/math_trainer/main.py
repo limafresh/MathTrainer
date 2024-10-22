@@ -1,9 +1,10 @@
 import sys
-from os.path import join, dirname
+from os.path import dirname, join
 from random import randint
+
+from PyQt6.QtCore import QLocale, QTimer, QTranslator, QUrl
+from PyQt6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PyQt6.QtWidgets import QApplication, QStackedWidget
-from PyQt6.QtMultimedia import QMediaPlayer, QAudioOutput
-from PyQt6.QtCore import QLocale, QTranslator, QTimer, QUrl
 from PyQt6.uic import loadUiType
 
 Ui_StackedWidget, QtBaseClass = loadUiType(join(dirname(__file__), "ui.ui"))
@@ -15,7 +16,7 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.setupUi(self)
         self.init_UI()
 
-    def init_UI(self):
+    def init_UI(self):  # noqa
         self.player = QMediaPlayer()
         self.audio_output = QAudioOutput()
         self.player.setAudioOutput(self.audio_output)
@@ -56,8 +57,8 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
             self.sign = "*"
             self.var = 10
 
-        self.a = int(randint(10, 99)/self.var)
-        self.b = int(randint(10, 99)/self.var)
+        self.a = int(randint(10, 99) / self.var)
+        self.b = int(randint(10, 99) / self.var)
 
         self.reset_counters()
 
@@ -90,8 +91,8 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.next_example()
 
     def next_example(self):
-        self.a = int(randint(10, 99)/self.var)
-        self.b = int(randint(10, 99)/self.var)
+        self.a = int(randint(10, 99) / self.var)
+        self.b = int(randint(10, 99) / self.var)
 
         self.example_label.setText(f"{self.a}{self.sign}{self.b}=")
         self.input_field.setText("")
