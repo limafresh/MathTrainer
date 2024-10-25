@@ -11,11 +11,12 @@ A math trainer for kids written in Python and PyQt 6. It includes addition withi
 ![Math trainer running on KDE Plasma 5.27 desktop](https://raw.githubusercontent.com/limafresh/MathTrainer/main/screenshot.png)
 
 ## Installation
-### Via pip
+### From PyPi via pip
 ```
 pip install math-trainer
 ```
 ### From source
+#### Via pip
 ```
 git clone https://github.com/limafresh/MathTrainer.git
 ```
@@ -25,6 +26,8 @@ cd MathTrainer
 ```
 pip install .
 ```
+#### Easy to run without installation
+Just run *main.py* via Python.
 
 ## Usage
 ```
@@ -33,3 +36,16 @@ math-trainer
 
 ## How to use  
 The application generates an example with random numbers. You need to enter the correct answer to it and click the "CHECK" button.
+
+## Additional information
+`math_trainer`:
++ `main.py`: contains the application logic
++ `ui.ui`: contains the application interface, created in Qt Designer
++ `locales`:
+    + `*.ts`: translation files created in Qt Linguist
+    + `*.qm`: contain translation, created as a result of conversion from *.ts* by the *lrelease* utility
++ `sounds`: contain sounds of correct and wrong answers
+
+`pyproject.toml`: contains information needed for installation via pip
+
+Sound effects authors: *Fupy*, *0new4y*; from [OpenGameArt.org](https://opengameart.org/), sounds licensed under CC0.

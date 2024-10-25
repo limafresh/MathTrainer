@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "math-trainer"
-version = "1.0.1"
+version = "1.0.2"
 dependencies = [
   "PyQt6>=6.4.2",
 ]
@@ -36,6 +36,9 @@ math-trainer = "math_trainer.main:main"
 [project.urls]
 Repository = "https://github.com/limafresh/MathTrainer"
 Issues = "https://github.com/limafresh/MathTrainer/issues"
+
+[tool.setuptools.package-data]
+math_trainer = ["*.ui", "locales/*.qm", "sounds/*.wav"]
 
 [tool.ruff]
 line-length = 120
