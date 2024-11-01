@@ -11,6 +11,8 @@ A math trainer for kids written in Python and PyQt 6. It includes addition withi
 ![Math trainer running on KDE Plasma 5.27 desktop](https://raw.githubusercontent.com/limafresh/MathTrainer/main/screenshot.png)
 
 ## Installation
+### From .deb file (Debian/Ubuntu/Linux Mint)
+[Download .deb file](https://github.com/limafresh/MathTrainer/releases/download/v1.0.3/MathTrainer.deb)
 ### From PyPi via pip
 ```
 pip install math-trainer
