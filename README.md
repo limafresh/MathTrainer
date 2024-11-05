@@ -12,9 +12,17 @@ A math trainer for kids written in Python and PyQt 6. It includes addition withi
 
 ## Installation
 ### From .deb file (Debian/Ubuntu/Linux Mint)
-[Download .deb file](https://github.com/limafresh/MathTrainer/releases/download/v1.0.3/MathTrainer.deb)
-### From PyPi via pip
+[Download .deb file](https://launchpad.net/~limafresh/+archive/ubuntu/math-trainer/+packages)
+
+For Debian 12 or Ubuntu 24.04 Noble Numbat LTS based distributions, download the Noble version.
+### From PPA (Ubuntu based distributions, 24.04 and newer)
+```bash
+sudo add-apt-repository ppa:limafresh/math-trainer
+sudo apt update
+sudo apt install math-trainer
 ```
+### From PyPi via pip
+```bash
 pip install math-trainer
 ```
 ### From source
@@ -32,9 +40,10 @@ pip install .
 Just run *main.py* via Python.
 
 ## Usage
-```
+```bash
 math-trainer
 ```
+Or run it from the applications menu (it doesn't work from PyPi).
 
 ## How to use  
 The application generates an example with random numbers. You need to enter the correct answer to it and click the "CHECK" button.
@@ -50,4 +59,9 @@ The application generates an example with random numbers. You need to enter the 
 
 `pyproject.toml`: contains information needed for installation via pip
 
+
 Sound effects authors: *Fupy*, *0new4y*; from [OpenGameArt.org](https://opengameart.org/), sounds licensed under CC0.
+
+## Notes
+### 05.11.2024
+New release numbering: X.X.X.postX (Major, minor, patch, README update or something not related to code).
