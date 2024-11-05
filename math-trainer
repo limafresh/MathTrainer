@@ -1,0 +1,4 @@
+#!/usr/bin/env python3
+
+from math_trainer.main import main
+main()

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Math trainer
+Comment=Practice addition skills within 100 and multiplication within 10
+Exec=math-trainer
+Icon=applications-education-mathematics
+Terminal=false
+Categories=Education;Game;KidsGame;
+Name[ru]=Математический тренажёр
+Name[uk]=Математичний тренажер
+Comment[ru]=Практикуйте навыки сложения в пределах 100 и умножения в пределах 10
+Comment[uk]=Відпрацьовуйте навички додавання в межах 100 і множення в межах 10
