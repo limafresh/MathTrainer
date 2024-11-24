@@ -105,6 +105,7 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
 
 def main():
     app = QApplication([])
+    app.setStyle("Fusion")
 
     # Translate app
     locale = QLocale.system().name()

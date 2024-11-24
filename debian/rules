@@ -7,13 +7,8 @@ override_dh_auto_install:
 	mkdir -p debian/math-trainer/usr/bin
 	cp -a math-trainer debian/math-trainer/usr/bin/
 	mkdir -p debian/math-trainer/usr/lib/python3/dist-packages/math_trainer
-	mkdir -p debian/math-trainer/usr/lib/python3/dist-packages/math_trainer/sounds
-	mkdir -p debian/math-trainer/usr/lib/python3/dist-packages/math_trainer/locales
-	cp -a math_trainer/main.py debian/math-trainer/usr/lib/python3/dist-packages/math_trainer/
-	cp -a math_trainer/ui.ui debian/math-trainer/usr/lib/python3/dist-packages/math_trainer/
-	cp -a math_trainer/sounds/* debian/math-trainer/usr/lib/python3/dist-packages/math_trainer/sounds/
-	cp -a math_trainer/locales/*.qm debian/math-trainer/usr/lib/python3/dist-packages/math_trainer/locales/
+	cp -a math_trainer/* debian/math-trainer/usr/lib/python3/dist-packages/math_trainer/
 	mkdir -p debian/math-trainer/usr/share/applications
 	cp -a math-trainer.desktop debian/math-trainer/usr/share/applications/
-	mkdir -p debian/math-trainer/usr/share/doc/math_trainer
-	cp -a LICENSE debian/math-trainer/usr/share/doc/math_trainer/
+	mkdir -p debian/math-trainer/usr/share/doc/math-trainer
+	cp -a LICENSE debian/math-trainer/usr/share/doc/math-trainer/

@@ -1,5 +1,5 @@
-math-trainer (1.0.3.post1-noble) noble; urgency=medium
+math-trainer (1.1.0-noble) noble; urgency=medium
 
-  * Initial release
+  * Added french and german locales, the theme is set to Fusion (since other themes, for example Kvantum, distort the UI), improved packaging
 
- -- limafresh <limafresh@proton.me>  Tue, 05 Nov 2024 16:37:13 +0200
+ -- limafresh <limafresh@proton.me>  Sun, 24 Nov 2024 17:16:59 +0200
