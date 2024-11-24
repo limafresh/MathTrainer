@@ -37,6 +37,9 @@ math-trainer = "math_trainer.main:main"
 Repository = "https://github.com/limafresh/MathTrainer"
 Issues = "https://github.com/limafresh/MathTrainer/issues"
 
+[tool.setuptools.packages.find]
+exclude = ["debian*", "translations*"]
+
 [tool.setuptools.package-data]
 math_trainer = ["*.ui", "locales/*.qm", "sounds/*.wav"]
 
