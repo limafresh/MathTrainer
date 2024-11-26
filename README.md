@@ -8,7 +8,7 @@
 
 A math trainer for kids written in Python and PyQt 6. It includes addition within 100 and multiplication within 10.
 
-![Math trainer running on KDE Plasma 5.27 desktop](https://raw.githubusercontent.com/limafresh/MathTrainer/main/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/limafresh/MathTrainer/main/screenshot.png)
 
 ## Installation
 ### From .deb file (Debian/Ubuntu/Linux Mint)
@@ -62,8 +62,8 @@ The application generates an example with random numbers. You need to enter the 
 
 `pyproject.toml`: contains information needed for installation via pip
 
-
-Sound effects authors: *Fupy*, *0new4y*; from [OpenGameArt.org](https://opengameart.org/), sounds licensed under CC0.
+## Credits
+Sound effects authors: *Fupy*, *0new4y*, under CC0; wood texture is by *SpringySpringo*, under CC0. From [OpenGameArt.org](https://opengameart.org/).
 
 ## Notes
 ### 05.11.2024

@@ -3,6 +3,7 @@ from os.path import dirname, join
 from random import randint
 
 from PyQt6.QtCore import QLocale, QTimer, QTranslator, QUrl
+from PyQt6.QtGui import QIcon
 from PyQt6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PyQt6.QtWidgets import QApplication, QStackedWidget
 from PyQt6.uic import loadUiType
@@ -17,6 +18,8 @@ class MathTrainer(QStackedWidget, Ui_StackedWidget):
         self.init_UI()
 
     def init_UI(self):  # noqa
+        self.setWindowIcon(QIcon(join(dirname(__file__), "math-trainer-icon.png")))
+
         self.player = QMediaPlayer()
         self.audio_output = QAudioOutput()
         self.player.setAudioOutput(self.audio_output)
