@@ -1,5 +1,5 @@
-math-trainer (1.2.0-noble) noble; urgency=medium
+math-trainer (1.2.0+1-noble) noble; urgency=medium
 
   * Added app icon, improved .deb build structure
 
- -- limafresh <limafresh@proton.me>  Tue, 26 Nov 2024 16:34:53 +0200
+ -- limafresh <limafresh@proton.me>  Sat, 30 Nov 2024 22:29:24 +0200
