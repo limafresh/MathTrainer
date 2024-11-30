@@ -15,5 +15,5 @@ override_dh_auto_install:
 	cp -a math-trainer.desktop debian/math-trainer/usr/share/applications/
 	mkdir -p debian/math-trainer/usr/share/doc/math-trainer
 	cp -a LICENSE debian/math-trainer/usr/share/doc/math-trainer/
-	mkdir -p debian/math-trainer/usr/share/icons/hicolor/512x512
-	cp -a math_trainer/math-trainer-icon.png debian/math-trainer/usr/share/icons/hicolor/512x512/
+	mkdir -p debian/math-trainer/usr/share/icons/hicolor/512x512/apps
+	cp -a math_trainer/math-trainer-icon.png debian/math-trainer/usr/share/icons/hicolor/512x512/apps/
