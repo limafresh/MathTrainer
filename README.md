@@ -24,47 +24,26 @@ sudo add-apt-repository ppa:limafresh/math-trainer
 sudo apt update
 sudo apt install math-trainer
 ```
-### From PyPi via pip
-```bash
-pip install math-trainer
-```
-### From source
-#### Via pip
-```
-git clone https://github.com/limafresh/MathTrainer.git
-```
-```
-cd MathTrainer
-```
-```
-pip install .
-```
-#### Easy to run without installation
+### Easy to run without installation
 Just run *main.py* via Python.
 
 ## Usage
 ```bash
 math-trainer
 ```
-Or run it from the applications menu (it doesn't work from PyPi).
+Or run it from the applications menu (if it was installed via via .deb file/apt).
 
 ## How to use  
 The application generates an example with random numbers. You need to enter the correct answer to it and click the "CHECK" button.
 
 ## Additional information
+`translations`: translation files created in Qt Linguist
+
 `math_trainer`:
 + `main.py`: contains the application logic
 + `ui.ui`: contains the application interface, created in Qt Designer
-+ `locales`:
-    + `*.ts`: translation files created in Qt Linguist
-    + `*.qm`: contain translation, created as a result of conversion from *.ts* by the *lrelease* utility
++ `locales`: contain translation, created as a result of conversion from *.ts* by the *lrelease* utility
 + `sounds`: contain sounds of correct and wrong answers
-
-`pyproject.toml`: contains information needed for installation via pip
 
 ## Credits
 Sound effects authors: *Fupy*, *0new4y*, under CC0; wood texture is by *SpringySpringo*, under CC0. From [OpenGameArt.org](https://opengameart.org/).
-
-## Notes
-### 05.11.2024
-New release numbering: X.X.X.postX (Major, minor, patch, README update or something not related to code).
