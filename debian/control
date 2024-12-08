@@ -2,8 +2,8 @@ Source: math-trainer
 Section: math
 Priority: optional
 Maintainer: limafresh <limafresh@proton.me>
-Build-Depends: debhelper (>= 10)
-Standards-Version: 4.5.0
+Build-Depends: debhelper-compat (= 10)
+Standards-Version: 4.0.0
 Homepage: https://github.com/limafresh/MathTrainer
 
 Package: math-trainer
