@@ -18,6 +18,7 @@ A math trainer for kids written in Python and PyQt 6. It includes addition withi
 | ---------------- | ------------ | ------------------------------------- |
 | `math-trainer_<version>-noble_all.deb` | Ubuntu Noble | Ubuntu Noble (24.04), Debian bookworm (12), Linux Mint 22, others based on Ubuntu 24.04 or Debian 12 |
 | `math-trainer_<version>-oracular_all.deb` | Ubuntu Oracular | Ubuntu Oracular (24.10) |
+| `math-trainer_<version>-plucky_all.deb` | Ubuntu Plucky | Ubuntu Plucky (25.04) |
 ### From PPA (Ubuntu based distributions, 24.04 and newer)
 ```bash
 sudo add-apt-repository ppa:limafresh/math-trainer
