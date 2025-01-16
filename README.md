@@ -11,28 +11,30 @@ A math trainer for kids written in Python and PyQt 6. It includes addition withi
 ![screenshot](https://raw.githubusercontent.com/limafresh/MathTrainer/main/screenshot.png)
 
 ## Installation
-### From .deb file (Debian/Ubuntu/Linux Mint)
-[Download .deb file](https://launchpad.net/~limafresh/+archive/ubuntu/math-trainer/+packages)
+
+### Windows 64bit
+
+[Download portable .exe file](https://github.com/limafresh/MathTrainer/releases)
+
+[*How is it packaged?*](https://gist.github.com/limafresh/21b8b7dd22ee456f61e400a96aeab5f1)
+
+### Linux
+
+#### From .deb file (Debian/Ubuntu/Linux Mint)
+[Download .deb file](https://github.com/limafresh/MathTrainer/releases)
 
 | Release filename | Build system | Compatible distributions |
 | ---------------- | ------------ | ------------------------------------- |
 | `math-trainer_<version>-noble_all.deb` | Ubuntu Noble | Ubuntu Noble (24.04), Debian bookworm (12), Linux Mint 22, others based on Ubuntu 24.04 or Debian 12 |
-| `math-trainer_<version>-oracular_all.deb` | Ubuntu Oracular | Ubuntu Oracular (24.10) |
-| `math-trainer_<version>-plucky_all.deb` | Ubuntu Plucky | Ubuntu Plucky (25.04) |
-### From PPA (Ubuntu based distributions, 24.04 and newer)
+
+#### From PPA (Ubuntu based distributions, 24.04 and newer)
 ```bash
 sudo add-apt-repository ppa:limafresh/math-trainer
 sudo apt update
 sudo apt install math-trainer
 ```
-### Easy to run without installation
-Just run *main.py* via Python.
-
-## Usage
-```bash
-math-trainer
-```
-Or run it from the applications menu (if it was installed via via .deb file/apt).
+### Run via Python (without installation)
+Just run *math_trainer/main.py* via Python.
 
 ## How to use  
 The application generates an example with random numbers. You need to enter the correct answer to it and click the "CHECK" button.
