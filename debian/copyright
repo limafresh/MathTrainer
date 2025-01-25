@@ -1,15 +1,15 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: math-trainer
-Upstream-Contact: limafresh <limafresh@proton.me>
+Upstream-Contact: limafresh <173814432+limafresh@users.noreply.github.com>
 Source: http://github.com/limafresh/MathTrainer
 
 Files: *
-Copyright: 2024 limafresh <limafresh@proton.me>
+Copyright: 2024-2025 limafresh <173814432+limafresh@users.noreply.github.com>
 License: GPL-3+
 
 License: GPL-3+
     Math trainer, practice addition skills within 100 and multiplication within 10
-    Copyright (C) 2024  limafresh
+    Copyright (C) 2024-2025  limafresh
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

@@ -1,5 +1,5 @@
-math-trainer (1.2.1-noble) noble; urgency=medium
+math-trainer (1.2.1+1-noble) noble; urgency=medium
 
   * Added french and german comments and removed unnecessary categories in .desktop file
 
- -- limafresh <limafresh@proton.me>  Mon, 13 Dec 2025 15:57:45 +0200
+ -- limafresh <173814432+limafresh@users.noreply.github.com>  Sat, 25 Jan 2025 20:25:40 +0200
