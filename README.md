@@ -11,13 +11,6 @@ A math trainer for kids written in Python and PyQt 6. It includes addition withi
 ![screenshot](https://raw.githubusercontent.com/limafresh/MathTrainer/main/screenshot.png)
 
 ## Installation
-
-### Windows 64bit
-
-[Download portable .exe file](https://github.com/limafresh/MathTrainer/releases)
-
-[*How is it packaged?*](https://gist.github.com/limafresh/377b2ab9ce05840effe615c65a7c7922)
-
 ### Linux
 
 #### From .deb file (Debian/Ubuntu/Linux Mint)
