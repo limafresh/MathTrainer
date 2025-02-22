@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	mkdir -p debian/math-trainer/usr/bin
+	echo '#!/usr/bin/env python3' > debian/math-trainer/usr/bin/math-trainer
+	echo '' >> debian/math-trainer/usr/bin/math-trainer
+	echo 'from math_trainer.main import main' >> debian/math-trainer/usr/bin/math-trainer
+	echo 'main()' >> debian/math-trainer/usr/bin/math-trainer
+	mkdir -p debian/math-trainer/usr/lib/python3/dist-packages/math_trainer
+	cp -a math_trainer/* debian/math-trainer/usr/lib/python3/dist-packages/math_trainer/
+	mkdir -p debian/math-trainer/usr/share/applications
+	cp -a math-trainer.desktop debian/math-trainer/usr/share/applications/
+	mkdir -p debian/math-trainer/usr/share/doc/math-trainer
+	cp -a LICENSE debian/math-trainer/usr/share/doc/math-trainer/
+	mkdir -p debian/math-trainer/usr/share/icons/hicolor/512x512/apps
+	cp -a math_trainer/math-trainer-icon.png debian/math-trainer/usr/share/icons/hicolor/512x512/apps/
