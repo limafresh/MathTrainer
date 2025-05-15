@@ -1,0 +1,127 @@
+body {
+    color: rgb(255, 255, 255);
+    background-color: rgb(36, 31, 49);
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    height: 100%;
+}
+#example {
+    font-size: 48px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+input {
+    color: rgb(0, 0, 0);
+    background-color: rgb(246, 245, 244);
+    border: 2px solid;
+    border-color: rgb(145, 65, 172);
+    border-radius: 10px;
+    min-height: 50;
+    font-size: 16px;
+    font-weight: bold;
+}
+button {
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    min-height: 50;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+#checkButton {
+    background-color: rgb(145, 65, 172);
+}
+#checkButton:hover {
+    background-color: rgb(129, 61, 156);
+}
+#checkButton:active {
+    background-color: rgb(97, 53, 131);
+}
+#skipButton {
+    background-color: rgb(53, 132, 228);
+}
+#skipButton:hover {
+    background-color: rgb(28, 113, 216);
+}
+#skipButton:active {
+    background-color: rgb(26, 95, 180);
+}
+select {
+    color: rgb(255, 255, 255);
+    background-color: rgb(145, 65, 172);
+    border-radius: 10px;
+    min-height: 50;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+select:hover {
+    background-color: rgb(129, 61, 156);
+}
+select:active {
+    background-color: rgb(97, 53, 131);
+}
+select option {
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(36, 31, 49);
+    border: 2px solid;
+    border-color: rgb(145, 65, 172);
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+input:focus, select:focus, button:focus {
+    outline: none;
+}
+#container2 {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border-radius: 10px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: bold;
+    flex-grow: 1;
+}
+#container2 p {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+#correctly {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(38, 162, 105);
+	color: rgb(255, 255, 255);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	z-index: 1000;
+	visibility: hidden;
+}
+#wrongly {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(237, 51, 59);
+	color: rgb(255, 255, 255);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	z-index: 1000;
+	visibility: hidden;
+}

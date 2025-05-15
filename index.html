@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles.css">
+		<title>Math trainer</title>
+		<link rel="icon" type="image/png" href="icon.png">
+	</head>
+	<body>
+		<div id="container">
+			<select id="select">
+				<option id="add100" value="0">Addition within 100</option>
+				<option id="multiplication10" value="1">Multiplication within 10</option>
+			</select>
+			<p id="example">2+2=</p>
+			<input id="inputField" placeholder="Enter the answer..." type="text">
+			<button id="checkButton">CHECK</button>
+			<button id="skipButton">Skip this example</button>
+			<div id="container2">
+				<p id="skippedExamples">Skipped examples:</p>
+				<p id="solvedExamples">Solved examples:</p>
+				<p id="mistakes">Mistakes:</p>
+			</div>
+		</div>
+		<div id="correctly">
+			<h1 id="correctlyh1">Correctly</h1>
+		</div>
+		<div id="wrongly">
+			<h1 id="wronglyh1">Wrongly</h1>
+		</div>
+		<audio id="correctlySound" preload="auto">
+			<source src="sounds/bell.wav"
+			type="audio/wav">
+		</audio>
+		<audio id="wronglySound" preload="auto">
+			<source src="sounds/losetrumpet.wav"
+			type="audio/wav">
+		</audio>
+		<script src="script.js"></script>
+	</body>
+</html>
