@@ -2,6 +2,9 @@ body {
     color: rgb(255, 255, 255);
     background-color: rgb(36, 31, 49);
 }
+p {
+    font-family: sans-serif;
+}
 #container {
     display: flex;
     flex-direction: column;
