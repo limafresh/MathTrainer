@@ -1,6 +1,7 @@
 body {
     color: rgb(255, 255, 255);
     background-color: rgb(36, 31, 49);
+    user-select: none;
 }
 p, h1 {
     font-family: sans-serif;
@@ -44,6 +45,8 @@ button {
 }
 #checkButton:active {
     background-color: rgb(97, 53, 131);
+    transition: all 0.5s ease-in-out;
+    transform: scale(0.9);
 }
 #skipButton {
     background-color: rgb(53, 132, 228);
@@ -53,6 +56,8 @@ button {
 }
 #skipButton:active {
     background-color: rgb(26, 95, 180);
+    transition: all 0.5s ease-in-out;
+    transform: scale(0.9);
 }
 select {
     color: rgb(255, 255, 255);

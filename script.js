@@ -34,23 +34,7 @@ function nextExample() {
 	document.getElementById("inputField").value = "";
 }
 
-document.getElementById("select").addEventListener("change", function(event) {
-	const value = Number(event.target.value);
-	if (value === 0) {
-		sign = "+";
-		variable = 1;
-	} else {
-		sign = "*";
-		variable = 10;
-	};
-
-	a = Math.floor((Math.random() * 90 + 10) / variable);
-	b = Math.floor((Math.random() * 90 + 10) / variable);
-
-	resetCounters();
-});
-
-document.getElementById("checkButton").addEventListener("click", function() {
+function checkExample() {
 	let correctAnswer;
 	if (sign === "+") {
 		correctAnswer = a + b;
@@ -77,13 +61,39 @@ document.getElementById("checkButton").addEventListener("click", function() {
 		mistakes++;
 		document.getElementById("mistakes").textContent = mistakesText + " " + mistakes;
 		nextExample();
-	}
+	};
+};
+
+document.getElementById("select").addEventListener("change", function(event) {
+	const value = Number(event.target.value);
+	if (value === 0) {
+		sign = "+";
+		variable = 1;
+	} else {
+		sign = "*";
+		variable = 10;
+	};
+
+	a = Math.floor((Math.random() * 90 + 10) / variable);
+	b = Math.floor((Math.random() * 90 + 10) / variable);
+
+	resetCounters();
+});
+
+document.getElementById("checkButton").addEventListener("click", function() {
+	checkExample();
 });
 
 document.getElementById("skipButton").addEventListener("click", function() {
 	skipped++;
 	document.getElementById("skippedExamples").textContent = skippedText + " " + skipped;
 	nextExample();
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        checkExample();
+    };
 });
 
 // App logic
