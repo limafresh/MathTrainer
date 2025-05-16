@@ -1,6 +1,10 @@
 # Math trainer  
 
-An online math trainer for kids. It includes addition within 100 and multiplication within 10.
+An online math trainer for kids. It includes:
+
+- Addition within 100
+- Multiplication within 10
+- Addition within 1000
 
 Launch: ➡️ https://limafresh.github.io/MathTrainer/
 

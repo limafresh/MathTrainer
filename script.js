@@ -11,6 +11,7 @@ function updateLanguage(language) {
 	document.getElementById("mistakes").textContent = t.mistakes;
 	document.getElementById("add100").textContent = t.add100;
 	document.getElementById("multiplication10").textContent = t.multiplication10;
+	document.getElementById("add1000").textContent = t.add1000;
 	document.getElementById("correctlyh1").textContent = t.correctly;
 	document.getElementById("wronglyh1").textContent = t.wrongly;
 }
@@ -69,9 +70,12 @@ document.getElementById("select").addEventListener("change", function(event) {
 	if (value === 0) {
 		sign = "+";
 		variable = 1;
-	} else {
+	} else if (value === 1) {
 		sign = "*";
 		variable = 10;
+	} else {
+		sign = "+";
+		variable = 0.1;
 	};
 
 	a = Math.floor((Math.random() * 90 + 10) / variable);
@@ -109,6 +113,7 @@ const translations = {
 		mistakes: "Ошибок:",
 		add100: "Сложение в пределах 100",
 		multiplication10: "Умножение в пределах 10",
+		add1000: "Сложение в пределах 1000",
 		correctly: "Правильно",
 		wrongly: "Неправильно",
 	},
@@ -122,6 +127,7 @@ const translations = {
 		mistakes: "Помилок:",
 		add100: "Додавання в межах 100",
 		multiplication10: "Множення в межах 10",
+		add1000: "Додавання в межах 1000",
 		correctly: "Правильно",
 		wrongly: "Неправильно",
 	}
