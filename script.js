@@ -2,7 +2,7 @@
 
 function updateLanguage(language) {
 	const t = translations[language];
-	document.title = t.title;
+	document.title = translations[language].title;
 	document.getElementById("inputField").placeholder = t.placeholder;
 	document.getElementById("checkButton").textContent = t.checkButton;
 	document.getElementById("skipButton").textContent = t.skipButton;
@@ -20,18 +20,18 @@ function resetCounters() {
 	skipped = 0;
 	solved = 0;
 	mistakes = 0;
-	document.getElementById("example").textContent = a + sign + b + "=";
+	document.getElementById("example").textContent = `${a}${sign}${b}=`;
 	document.getElementById("inputField").value = "";
-	document.getElementById("skippedExamples").textContent = skippedText + " " + skipped
-	document.getElementById("solvedExamples").textContent = solvedText + " " + solved
-	document.getElementById("mistakes").textContent = mistakesText + " " + mistakes
+	document.getElementById("skippedExamples").textContent = `${skippedText}${skipped}`;
+	document.getElementById("solvedExamples").textContent = `${solvedText}${solved}`;
+	document.getElementById("mistakes").textContent = `${mistakesText}${mistakes}`;
 };
 
 function nextExample() {
 	a = Math.floor((Math.random() * 90 + 10) / variable);
 	b = Math.floor((Math.random() * 90 + 10) / variable);
 
-	document.getElementById("example").textContent = a + sign + b + "=";
+	document.getElementById("example").textContent = `${a}${sign}${b}=`;
 	document.getElementById("inputField").value = "";
 }
 
@@ -50,7 +50,7 @@ function checkExample() {
 			document.getElementById("correctly").style.visibility = "hidden";
 		}, 1000);
 		solved++;
-		document.getElementById("solvedExamples").textContent = solvedText + " " + solved;
+		document.getElementById("solvedExamples").textContent = `${solvedText}${solved}`;
 		nextExample();
 	} else if (document.getElementById("inputField").value === "") {
 	} else {
@@ -60,7 +60,7 @@ function checkExample() {
 			document.getElementById("wrongly").style.visibility = "hidden";
 		}, 1000);
 		mistakes++;
-		document.getElementById("mistakes").textContent = mistakesText + " " + mistakes;
+		document.getElementById("mistakes").textContent = `${mistakesText}${mistakes}`;
 		nextExample();
 	};
 };
@@ -84,13 +84,11 @@ document.getElementById("select").addEventListener("change", function(event) {
 	resetCounters();
 });
 
-document.getElementById("checkButton").addEventListener("click", function() {
-	checkExample();
-});
+document.getElementById("checkButton").addEventListener("click", checkExample);
 
 document.getElementById("skipButton").addEventListener("click", function() {
 	skipped++;
-	document.getElementById("skippedExamples").textContent = skippedText + " " + skipped;
+	document.getElementById("skippedExamples").textContent = `${skippedText} ${skipped}`;
 	nextExample();
 });
 
@@ -132,8 +130,6 @@ const translations = {
 		wrongly: "Неправильно",
 	}
 }
-
-const languageSelect = document.getElementById("languageSelect");
 
 const browserLanguage = navigator.language.slice(0, 2);
 

@@ -1,16 +1,14 @@
-body {
+html, body {
     color: rgb(255, 255, 255);
     background-color: rgb(36, 31, 49);
     user-select: none;
-}
-p, h1 {
-    font-family: sans-serif;
-}
-#container {
     display: flex;
     flex-direction: column;
     gap: 7px;
     height: 100%;
+}
+p, h1 {
+    font-family: sans-serif;
 }
 #example {
     font-size: 48px;
@@ -25,14 +23,14 @@ input {
     border: 2px solid;
     border-color: rgb(145, 65, 172);
     border-radius: 10px;
-    min-height: 50;
+    min-height: 50px;
     font-size: 16px;
     font-weight: bold;
 }
 button {
     color: rgb(255, 255, 255);
     border-radius: 10px;
-    min-height: 50;
+    min-height: 50px;
     border: none;
     font-size: 16px;
     font-weight: bold;
@@ -63,7 +61,7 @@ select {
     color: rgb(255, 255, 255);
     background-color: rgb(145, 65, 172);
     border-radius: 10px;
-    min-height: 50;
+    min-height: 50px;
     border: none;
     font-size: 16px;
     font-weight: bold;
@@ -87,7 +85,7 @@ select option {
 input:focus, select:focus, button:focus {
     outline: none;
 }
-#container2 {
+#counters {
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -98,18 +96,17 @@ input:focus, select:focus, button:focus {
     font-weight: bold;
     flex-grow: 1;
 }
-#container2 p {
+#counters p {
     display: flex;
     align-items: center;
     flex-grow: 1;
 }
-#correctly {
-	position: fixed;
+.notification {
+   position: fixed;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgb(38, 162, 105);
 	color: rgb(255, 255, 255);
 	display: flex;
 	justify-content: center;
@@ -117,19 +114,10 @@ input:focus, select:focus, button:focus {
 	font-size: 24px;
 	z-index: 1000;
 	visibility: hidden;
+} 
+#correctly {
+	background-color: rgb(38, 162, 105);
 }
 #wrongly {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
 	background-color: rgb(237, 51, 59);
-	color: rgb(255, 255, 255);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 24px;
-	z-index: 1000;
-	visibility: hidden;
 }
