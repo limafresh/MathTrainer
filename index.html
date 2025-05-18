@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" href="styles.css">
-		<title>Math trainer</title>
 		<link rel="icon" type="image/png" href="icon.png">
+		<title>Math trainer</title>
 	</head>
 	<body>
 		<select id="select">
@@ -14,19 +15,15 @@
 		</select>
 		<p id="example">2+2=</p>
 		<input id="inputField" placeholder="Enter the answer..." type="text">
-		<button id="checkButton">CHECK</button>
-		<button id="skipButton">Skip this example</button>
+		<button id="checkButton" onclick="checkExample()">CHECK</button>
+		<button id="skipButton" onclick="skipExample()">Skip this example</button>
 		<div id="counters">
 			<p id="skippedExamples">Skipped examples:</p>
 			<p id="solvedExamples">Solved examples:</p>
 			<p id="mistakes">Mistakes:</p>
 		</div>
-		<div class="notification" id="correctly">
-			<h1 id="correctlyh1">Correctly</h1>
-		</div>
-		<div class="notification" id="wrongly">
-			<h1 id="wronglyh1">Wrongly</h1>
-		</div>
+		<div class="notification" id="correctly">Correctly</div>
+		<div class="notification" id="wrongly">Wrongly</div>
 		<audio id="correctlySound" preload="auto">
 			<source src="sounds/bell.wav"
 			type="audio/wav">

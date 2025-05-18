@@ -1,24 +1,25 @@
 html, body {
-    color: rgb(255, 255, 255);
-    background-color: rgb(36, 31, 49);
-    user-select: none;
     display: flex;
     flex-direction: column;
-    gap: 7px;
     height: 100%;
+    gap: 7px;
+    user-select: none;
+    color: white;
+    background-color: rgb(36, 31, 49);
 }
-p, h1 {
+p, .notification {
     font-family: sans-serif;
 }
 #example {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    margin: 0px;
     font-size: 48px;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
 }
 input {
-    color: rgb(0, 0, 0);
+    color: black;
     background-color: rgb(246, 245, 244);
     border: 2px solid;
     border-color: rgb(145, 65, 172);
@@ -27,11 +28,11 @@ input {
     font-size: 16px;
     font-weight: bold;
 }
-button {
-    color: rgb(255, 255, 255);
+button, select {
+    color: white;
+    border: none;
     border-radius: 10px;
     min-height: 50px;
-    border: none;
     font-size: 16px;
     font-weight: bold;
 }
@@ -43,8 +44,6 @@ button {
 }
 #checkButton:active {
     background-color: rgb(97, 53, 131);
-    transition: all 0.5s ease-in-out;
-    transform: scale(0.9);
 }
 #skipButton {
     background-color: rgb(53, 132, 228);
@@ -54,17 +53,9 @@ button {
 }
 #skipButton:active {
     background-color: rgb(26, 95, 180);
-    transition: all 0.5s ease-in-out;
-    transform: scale(0.9);
 }
 select {
-    color: rgb(255, 255, 255);
     background-color: rgb(145, 65, 172);
-    border-radius: 10px;
-    min-height: 50px;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
 }
 select:hover {
     background-color: rgb(129, 61, 156);
@@ -73,11 +64,11 @@ select:active {
     background-color: rgb(97, 53, 131);
 }
 select option {
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
+    color: white;
     background-color: rgb(36, 31, 49);
     border: 2px solid;
     border-color: rgb(145, 65, 172);
+    border-radius: 10px;
     padding: 5px;
     font-size: 16px;
     font-weight: bold;
@@ -88,30 +79,32 @@ input:focus, select:focus, button:focus {
 #counters {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: 7px;
     border-radius: 10px;
     color: black;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     font-size: 16px;
     font-weight: bold;
-    flex-grow: 1;
 }
 #counters p {
     display: flex;
     align-items: center;
     flex-grow: 1;
+    margin: 0px;
 }
 .notification {
-   position: fixed;
+    position: fixed;
 	top: 0;
 	left: 0;
-	width: 100vw;
-	height: 100vh;
-	color: rgb(255, 255, 255);
+	width: 100%;
+	height: 100%;
+	color: white;
 	display: flex;
+	font-weight: bold;
 	justify-content: center;
 	align-items: center;
-	font-size: 24px;
+	font-size: 48px;
 	z-index: 1000;
 	visibility: hidden;
 } 

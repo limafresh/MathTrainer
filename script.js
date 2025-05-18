@@ -12,8 +12,8 @@ function updateLanguage(language) {
 	document.getElementById("add100").textContent = t.add100;
 	document.getElementById("multiplication10").textContent = t.multiplication10;
 	document.getElementById("add1000").textContent = t.add1000;
-	document.getElementById("correctlyh1").textContent = t.correctly;
-	document.getElementById("wronglyh1").textContent = t.wrongly;
+	document.getElementById("correctly").textContent = t.correctly;
+	document.getElementById("wrongly").textContent = t.wrongly;
 }
 
 function resetCounters() {
@@ -65,6 +65,12 @@ function checkExample() {
 	};
 };
 
+function skipExample() {
+	skipped++;
+	document.getElementById("skippedExamples").textContent = `${skippedText} ${skipped}`;
+	nextExample();
+};
+
 document.getElementById("select").addEventListener("change", function(event) {
 	const value = Number(event.target.value);
 	if (value === 0) {
@@ -82,14 +88,6 @@ document.getElementById("select").addEventListener("change", function(event) {
 	b = Math.floor((Math.random() * 90 + 10) / variable);
 
 	resetCounters();
-});
-
-document.getElementById("checkButton").addEventListener("click", checkExample);
-
-document.getElementById("skipButton").addEventListener("click", function() {
-	skipped++;
-	document.getElementById("skippedExamples").textContent = `${skippedText} ${skipped}`;
-	nextExample();
 });
 
 document.addEventListener('keydown', (event) => {
