@@ -39,7 +39,8 @@ function checkExample() {
 	let correctAnswer;
 	if (sign === "+") {
 		correctAnswer = a + b;
-	} else {
+	}
+	else {
 		correctAnswer = a * b;
 	};
 
@@ -52,8 +53,10 @@ function checkExample() {
 		solved++;
 		document.getElementById("solvedExamples").textContent = `${solvedText}${solved}`;
 		nextExample();
-	} else if (document.getElementById("inputField").value === "") {
-	} else {
+	}
+	else if (document.getElementById("inputField").value === "") {
+	}
+	else {
 		document.getElementById("wronglySound").play();
 		document.getElementById("wrongly").style.visibility = "visible";
 		setTimeout(() => {
@@ -76,10 +79,12 @@ document.getElementById("select").addEventListener("change", function(event) {
 	if (value === 0) {
 		sign = "+";
 		variable = 1;
-	} else if (value === 1) {
+	}
+	else if (value === 1) {
 		sign = "*";
 		variable = 10;
-	} else {
+	}
+	else {
 		sign = "+";
 		variable = 0.1;
 	};

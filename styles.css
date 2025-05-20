@@ -66,10 +66,6 @@ select:active {
 select option {
     color: white;
     background-color: rgb(36, 31, 49);
-    border: 2px solid;
-    border-color: rgb(145, 65, 172);
-    border-radius: 10px;
-    padding: 5px;
     font-size: 16px;
     font-weight: bold;
 }
