@@ -22,9 +22,9 @@ function resetCounters() {
 	mistakes = 0;
 	document.getElementById("example").textContent = `${a}${sign}${b}=`;
 	document.getElementById("inputField").value = "";
-	document.getElementById("skippedExamples").textContent = `${skippedText}${skipped}`;
-	document.getElementById("solvedExamples").textContent = `${solvedText}${solved}`;
-	document.getElementById("mistakes").textContent = `${mistakesText}${mistakes}`;
+	document.getElementById("skippedExamples").textContent = `${skippedText} ${skipped}`;
+	document.getElementById("solvedExamples").textContent = `${solvedText} ${solved}`;
+	document.getElementById("mistakes").textContent = `${mistakesText} ${mistakes}`;
 };
 
 function nextExample() {
@@ -51,7 +51,7 @@ function checkExample() {
 			document.getElementById("correctly").style.visibility = "hidden";
 		}, 1000);
 		solved++;
-		document.getElementById("solvedExamples").textContent = `${solvedText}${solved}`;
+		document.getElementById("solvedExamples").textContent = `${solvedText} ${solved}`;
 		nextExample();
 	}
 	else if (document.getElementById("inputField").value === "") {
@@ -63,7 +63,7 @@ function checkExample() {
 			document.getElementById("wrongly").style.visibility = "hidden";
 		}, 1000);
 		mistakes++;
-		document.getElementById("mistakes").textContent = `${mistakesText}${mistakes}`;
+		document.getElementById("mistakes").textContent = `${mistakesText} ${mistakes}`;
 		nextExample();
 	};
 };
@@ -104,6 +104,34 @@ document.addEventListener('keydown', (event) => {
 // App logic
 
 const translations = {
+	fr: {
+		title: "Formateur en mathématiques",
+		placeholder: "Entrez la réponse...",
+		checkButton: "CHÈQUE",
+		skipButton: "Passer cet exemple",
+		skippedExamples: "Exemples sautés:",
+		solvedExamples: "Exemples résolus:",
+		mistakes: "Erreurs:",
+		add100: "Addition dans les 100",
+		multiplication10: "Multiplication dans les 10",
+		add1000: "Addition dans les 1000",
+		correctly: "Correctement",
+		wrongly: "À tort",
+	},
+	de: {
+		title: "Mathematiktrainer",
+		placeholder: "Geben Sie hier ein, wie viel...",
+		checkButton: "ÜBERPRÜFEN",
+		skipButton: "Überspringen Sie dieses Beispiel",
+		skippedExamples: "Übersprungene Beispiele:",
+		solvedExamples: "Gelöste Beispiele:",
+		mistakes: "Fehler:",
+		add100: "Addition innerhalb von 100",
+		multiplication10: "Multiplikation innerhalb von 10",
+		add1000: "Addition innerhalb von 1000",
+		correctly: "Korrekt",
+		wrongly: "Falsch",
+	},
 	ru: {
 		title: "Математический тренажёр",
 		placeholder: "Введите тут, сколько будет...",
