@@ -63,11 +63,58 @@ select:hover {
 select:active {
     background-color: rgb(97, 53, 131);
 }
-select option {
-    color: white;
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    z-index: 1000;
     background-color: rgb(36, 31, 49);
-    font-size: 16px;
-    font-weight: bold;
+    border-radius: 0 10px 10px 0;
+    transition: left 0.3s ease;
+}
+#sidebar.open {
+    left: 0;
+}
+.sidebarOption {
+    margin: 7px;
+    background-color: rgb(36, 31, 49);
+}
+.sidebarOption:hover {
+    background-color: rgb(61, 56, 70);
+}
+.sidebarOption:active {
+    background-color: rgb(94, 92, 100);
+}
+#closeSidebarBtn {
+    align-self: flex-end;
+    margin: 7px;
+    width: 50px;
+    background-color: rgb(224, 27, 36);
+}
+#closeSidebarBtn:hover {
+    background-color: rgb(192, 28, 40);
+}
+#closeSidebarBtn:active {
+    background-color: rgb(165, 29, 45);
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    background-color: black;
+}
+#overlay.open {
+    visibility: visible;
+    opacity: 0.7;
 }
 input:focus, select:focus, button:focus {
     outline: none;

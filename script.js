@@ -10,10 +10,39 @@ function updateLanguage(language) {
 	document.getElementById("solvedExamples").textContent = t.solvedExamples;
 	document.getElementById("mistakes").textContent = t.mistakes;
 	document.getElementById("add100").textContent = t.add100;
+	document.getElementById("select").querySelector('option[value="0"]').textContent = t.add100;
 	document.getElementById("multiplication10").textContent = t.multiplication10;
+	document.getElementById("select").querySelector('option[value="1"]').textContent = t.multiplication10;
 	document.getElementById("add1000").textContent = t.add1000;
+	document.getElementById("select").querySelector('option[value="2"]').textContent = t.add1000;
 	document.getElementById("correctly").textContent = t.correctly;
 	document.getElementById("wrongly").textContent = t.wrongly;
+}
+
+function openSidebar() {
+	document.getElementById("sidebar").classList.toggle("open");
+	document.getElementById("overlay").classList.toggle("open");
+};
+
+function closeSidebar() {
+	document.getElementById("sidebar").classList.remove("open");
+	document.getElementById("overlay").classList.remove("open");
+};
+
+function postChange(optionName) {
+	a = Math.floor((Math.random() * 90 + 10) / variable);
+	b = Math.floor((Math.random() * 90 + 10) / variable);
+
+	resetCounters();
+	closeSidebar();
+	
+	document.querySelectorAll(".sidebarOption").forEach(option => {
+		option.disabled = false;
+		option.style.border = "none";
+	});
+
+	document.getElementById(optionName).disabled = true;
+	document.getElementById(optionName).style.border = "2px solid rgb(145, 65, 172)";
 }
 
 function resetCounters() {
@@ -74,29 +103,29 @@ function skipExample() {
 	nextExample();
 };
 
-document.getElementById("select").addEventListener("change", function(event) {
-	const value = Number(event.target.value);
-	if (value === 0) {
-		sign = "+";
-		variable = 1;
-	}
-	else if (value === 1) {
-		sign = "*";
-		variable = 10;
-	}
-	else {
-		sign = "+";
-		variable = 0.1;
-	};
+function setAdditionWithin100() {
+	sign = "+";
+	variable = 1;
+	document.getElementById("select").value = "0";
+	postChange("add100");
+};
 
-	a = Math.floor((Math.random() * 90 + 10) / variable);
-	b = Math.floor((Math.random() * 90 + 10) / variable);
+function setMultiplicationWithin10() {
+	sign = "*";
+	variable = 10;
+	document.getElementById("select").value = "1";
+	postChange("multiplication10");
+};
 
-	resetCounters();
-});
+function setAdditionWithin1000() {
+	sign = "+";
+	variable = 0.1;
+	document.getElementById("select").value = "2";
+	postChange("add1000");
+};
 
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
         checkExample();
     };
 });
@@ -168,17 +197,12 @@ if (translations[browserLanguage]) {
 	updateLanguage(browserLanguage);
 };
 
-let a = Math.floor(Math.random() * 90) + 10;
-let b = Math.floor(Math.random() * 90) + 10;
-let sign = "+";
-let variable = 1;
-
 let skipped = 0;
 let solved = 0;
 let mistakes = 0;
 
-const skippedText = document.getElementById("skippedExamples").textContent
-const solvedText = document.getElementById("solvedExamples").textContent
-const mistakesText = document.getElementById("mistakes").textContent
+const skippedText = document.getElementById("skippedExamples").textContent;
+const solvedText = document.getElementById("solvedExamples").textContent;
+const mistakesText = document.getElementById("mistakes").textContent;
 
-resetCounters();
+setAdditionWithin100();
