@@ -29,22 +29,6 @@ function closeSidebar() {
 	document.getElementById("overlay").classList.remove("open");
 };
 
-function postChange(optionName) {
-	a = Math.floor((Math.random() * 90 + 10) / variable);
-	b = Math.floor((Math.random() * 90 + 10) / variable);
-
-	resetCounters();
-	closeSidebar();
-	
-	document.querySelectorAll(".sidebarOption").forEach(option => {
-		option.disabled = false;
-		option.style.border = "none";
-	});
-
-	document.getElementById(optionName).disabled = true;
-	document.getElementById(optionName).style.border = "2px solid rgb(145, 65, 172)";
-}
-
 function resetCounters() {
 	skipped = 0;
 	solved = 0;
@@ -103,26 +87,26 @@ function skipExample() {
 	nextExample();
 };
 
-function setAdditionWithin100() {
-	sign = "+";
-	variable = 1;
-	document.getElementById("select").value = "0";
-	postChange("add100");
-};
+function changeMode(newSign, newVariable, value, optionName) {
+	sign = newSign;
+	variable = newVariable;
 
-function setMultiplicationWithin10() {
-	sign = "*";
-	variable = 10;
-	document.getElementById("select").value = "1";
-	postChange("multiplication10");
-};
+	document.getElementById("select").value = value;
+	
+	a = Math.floor((Math.random() * 90 + 10) / variable);
+	b = Math.floor((Math.random() * 90 + 10) / variable);
 
-function setAdditionWithin1000() {
-	sign = "+";
-	variable = 0.1;
-	document.getElementById("select").value = "2";
-	postChange("add1000");
-};
+	resetCounters();
+	closeSidebar();
+
+	document.querySelectorAll(".sidebarOption").forEach(option => {
+		option.disabled = false;
+		option.classList.remove("open");
+	});
+
+	document.getElementById(optionName).disabled = true;
+	document.getElementById(optionName).classList.toggle("open");
+}
 
 document.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
@@ -205,4 +189,6 @@ const skippedText = document.getElementById("skippedExamples").textContent;
 const solvedText = document.getElementById("solvedExamples").textContent;
 const mistakesText = document.getElementById("mistakes").textContent;
 
-setAdditionWithin100();
+let a, b, sign, variable;
+
+changeMode("+", 1, "0", "add100");
