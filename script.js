@@ -21,6 +21,7 @@ function updateLanguage(language) {
 	document.getElementById("select").querySelector('option[value="4"]').textContent = t.division10;
 	document.getElementById("correctly").textContent = t.correctly;
 	document.getElementById("wrongly").textContent = t.wrongly;
+	document.getElementById("correctAnswerP").textContent = t.correctAnswerP;
 }
 
 function openSidebar() {
@@ -78,9 +79,9 @@ function checkExample() {
 
 	if (Number(document.getElementById("inputField").value) === correctAnswer) {
 		document.getElementById("correctlySound").play();
-		document.getElementById("correctly").style.visibility = "visible";
+		document.getElementById("correctlyDiv").style.visibility = "visible";
 		setTimeout(() => {
-			document.getElementById("correctly").style.visibility = "hidden";
+			document.getElementById("correctlyDiv").style.visibility = "hidden";
 		}, 1000);
 		solved++;
 		document.getElementById("solvedExamples").textContent = `${solvedText} ${solved}`;
@@ -90,9 +91,10 @@ function checkExample() {
 	}
 	else {
 		document.getElementById("wronglySound").play();
-		document.getElementById("wrongly").style.visibility = "visible";
+		document.getElementById("wronglyDiv").style.visibility = "visible";
+		document.getElementById("correctAnswerP").textContent = `${correctAnswerPText} ${correctAnswer}`;
 		setTimeout(() => {
-			document.getElementById("wrongly").style.visibility = "hidden";
+			document.getElementById("wronglyDiv").style.visibility = "hidden";
 		}, 1000);
 		mistakes++;
 		document.getElementById("mistakes").textContent = `${mistakesText} ${mistakes}`;
@@ -149,6 +151,7 @@ const translations = {
 		division10: "Division dans les 10",
 		correctly: "Correctement",
 		wrongly: "À tort",
+		correctAnswerP: "Réponse correcte:",
 	},
 	de: {
 		title: "Mathematiktrainer",
@@ -165,6 +168,7 @@ const translations = {
 		division10: "Division innerhalb von 10",
 		correctly: "Korrekt",
 		wrongly: "Falsch",
+		correctAnswerP: "Richtige Antwort:",
 	},
 	ru: {
 		title: "Математический тренажёр",
@@ -181,6 +185,7 @@ const translations = {
 		division10: "Деление в пределах 10",
 		correctly: "Правильно",
 		wrongly: "Неправильно",
+		correctAnswerP: "Правильный ответ:",
 	},
 	uk: {
 		title: "Математичний тренажер",
@@ -197,6 +202,7 @@ const translations = {
 		division10: "Ділення в межах 10",
 		correctly: "Правильно",
 		wrongly: "Неправильно",
+		correctAnswerP: "Правильна відповідь:",
 	}
 }
 
@@ -213,6 +219,7 @@ let mistakes = 0;
 const skippedText = document.getElementById("skippedExamples").textContent;
 const solvedText = document.getElementById("solvedExamples").textContent;
 const mistakesText = document.getElementById("mistakes").textContent;
+const correctAnswerPText = document.getElementById("correctAnswerP").textContent;
 
 let a, b, sign, variable;
 

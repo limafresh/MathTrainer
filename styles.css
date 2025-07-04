@@ -144,6 +144,8 @@ input:focus, select:focus, button:focus {
 	margin: 0px;
 }
 .notification {
+	display: flex;
+	flex-direction: column;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -158,9 +160,12 @@ input:focus, select:focus, button:focus {
 	z-index: 1000;
 	visibility: hidden;
 } 
-#correctly {
+#correctlyDiv {
 	background-color: rgb(38, 162, 105);
 }
-#wrongly {
+#wronglyDiv {
 	background-color: rgb(237, 51, 59);
+}
+#correctAnswerP {
+	font-size: 24px;
 }
