@@ -10,14 +10,18 @@
 	<body>
 		<select id="select" onmousedown="return false" onclick="openSidebar()">
 			<option value="0">Addition within 100</option>
-			<option value="1">Multiplication within 10</option>
-			<option value="2">Addition within 1000</option>
+			<option value="1">Addition within 1000</option>
+			<option value="2">Subtraction within 100</option>
+			<option value="3">Multiplication within 10</option>
+			<option value="4">Division within 10</option>
 		</select>
 		<div id="sidebar">
 			<button id="closeSidebarBtn" onclick="closeSidebar()">&times;</button>
 			<button class="sidebarOption" id="add100" onclick="changeMode('+', 1, '0', 'add100')">Addition within 100</button>
-			<button class="sidebarOption" id="multiplication10" onclick="changeMode('*', 10, '1', 'multiplication10')">Multiplication within 10</button>
-			<button class="sidebarOption" id="add1000" onclick="changeMode('+', 0.1, '2', 'add1000')">Addition within 1000</button>
+			<button class="sidebarOption" id="add1000" onclick="changeMode('+', 0.1, '1', 'add1000')">Addition within 1000</button>
+			<button class="sidebarOption" id="subtraction100" onclick="changeMode('-', 1, '2', 'subtraction100')">Subtraction within 100</button>
+			<button class="sidebarOption" id="multiplication10" onclick="changeMode('*', 10, '3', 'multiplication10')">Multiplication within 10</button>
+			<button class="sidebarOption" id="division10" onclick="changeMode('/', 10, '4', 'division10')">Division within 10</button>
 		</div>
 		<div id="overlay" onclick="closeSidebar()"></div>
 		<p id="example">2+2=</p>

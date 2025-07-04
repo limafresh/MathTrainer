@@ -2,14 +2,16 @@
 
 ![Static Badge](https://img.shields.io/badge/Mobile-friendly-purple)
 
-An interactive online math trainer for kids — practice addition and multiplication with ease on any device!
+An interactive online math trainer for kids — practice solving math examples with ease on any device!
 
 ## Features
-- Addition within 100
-- Multiplication within 10
-- Addition within 1000
+- ➕ Addition within 100
+- ➕ Addition within 1000
+- ➖ Subtraction within 100
+- ✖️ Multiplication within 10
+- ➗ Division within 10
 
-Launch ➡️ https://limafresh.github.io/MathTrainer/
+**Launch** ➡️ https://limafresh.github.io/MathTrainer/
 
 ![screenshot](https://raw.githubusercontent.com/limafresh/MathTrainer/main/screenshot.png)
 

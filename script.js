@@ -11,10 +11,14 @@ function updateLanguage(language) {
 	document.getElementById("mistakes").textContent = t.mistakes;
 	document.getElementById("add100").textContent = t.add100;
 	document.getElementById("select").querySelector('option[value="0"]').textContent = t.add100;
-	document.getElementById("multiplication10").textContent = t.multiplication10;
-	document.getElementById("select").querySelector('option[value="1"]').textContent = t.multiplication10;
 	document.getElementById("add1000").textContent = t.add1000;
-	document.getElementById("select").querySelector('option[value="2"]').textContent = t.add1000;
+	document.getElementById("select").querySelector('option[value="1"]').textContent = t.add1000;
+	document.getElementById("subtraction100").textContent = t.subtraction100;
+	document.getElementById("select").querySelector('option[value="2"]').textContent = t.subtraction100;
+	document.getElementById("multiplication10").textContent = t.multiplication10;
+	document.getElementById("select").querySelector('option[value="3"]').textContent = t.multiplication10;
+	document.getElementById("division10").textContent = t.division10;
+	document.getElementById("select").querySelector('option[value="4"]').textContent = t.division10;
 	document.getElementById("correctly").textContent = t.correctly;
 	document.getElementById("wrongly").textContent = t.wrongly;
 }
@@ -29,6 +33,19 @@ function closeSidebar() {
 	document.getElementById("overlay").classList.remove("open");
 };
 
+function generateExample() {
+	a = Math.floor((Math.random() * 90 + 10) / variable);
+	b = Math.floor((Math.random() * 90 + 10) / variable);
+	
+	if (sign === "-") {
+		if (a < b) {
+			[a, b] = [b, a];
+		};
+	} else if (sign === "/") {
+		a = a * b;
+	};
+};
+
 function resetCounters() {
 	skipped = 0;
 	solved = 0;
@@ -41,20 +58,22 @@ function resetCounters() {
 };
 
 function nextExample() {
-	a = Math.floor((Math.random() * 90 + 10) / variable);
-	b = Math.floor((Math.random() * 90 + 10) / variable);
-
+	generateExample();
 	document.getElementById("example").textContent = `${a}${sign}${b}=`;
 	document.getElementById("inputField").value = "";
 }
 
 function checkExample() {
 	let correctAnswer;
+
 	if (sign === "+") {
 		correctAnswer = a + b;
-	}
-	else {
+	} else if (sign === "-") {
+		correctAnswer = a - b;
+	} else if (sign === "*") {
 		correctAnswer = a * b;
+	} else if (sign === "/") {
+		correctAnswer = a / b;
 	};
 
 	if (Number(document.getElementById("inputField").value) === correctAnswer) {
@@ -93,9 +112,7 @@ function changeMode(newSign, newVariable, value, optionName) {
 
 	document.getElementById("select").value = value;
 	
-	a = Math.floor((Math.random() * 90 + 10) / variable);
-	b = Math.floor((Math.random() * 90 + 10) / variable);
-
+	generateExample();
 	resetCounters();
 	closeSidebar();
 
@@ -126,8 +143,10 @@ const translations = {
 		solvedExamples: "Exemples résolus:",
 		mistakes: "Erreurs:",
 		add100: "Addition dans les 100",
-		multiplication10: "Multiplication dans les 10",
 		add1000: "Addition dans les 1000",
+		subtraction100: "Soustraction jusqu'à 100",
+		multiplication10: "Multiplication dans les 10",
+		division10: "Division dans les 10",
 		correctly: "Correctement",
 		wrongly: "À tort",
 	},
@@ -140,8 +159,10 @@ const translations = {
 		solvedExamples: "Gelöste Beispiele:",
 		mistakes: "Fehler:",
 		add100: "Addition innerhalb von 100",
-		multiplication10: "Multiplikation innerhalb von 10",
 		add1000: "Addition innerhalb von 1000",
+		subtraction100: "Subtraktion innerhalb von 100",
+		multiplication10: "Multiplikation innerhalb von 10",
+		division10: "Division innerhalb von 10",
 		correctly: "Korrekt",
 		wrongly: "Falsch",
 	},
@@ -154,8 +175,10 @@ const translations = {
 		solvedExamples: "Решено примеров:",
 		mistakes: "Ошибок:",
 		add100: "Сложение в пределах 100",
-		multiplication10: "Умножение в пределах 10",
 		add1000: "Сложение в пределах 1000",
+		subtraction100: "Вычитание в пределах 100",
+		multiplication10: "Умножение в пределах 10",
+		division10: "Деление в пределах 10",
 		correctly: "Правильно",
 		wrongly: "Неправильно",
 	},
@@ -168,8 +191,10 @@ const translations = {
 		solvedExamples: "Розв'язано прикладів:",
 		mistakes: "Помилок:",
 		add100: "Додавання в межах 100",
-		multiplication10: "Множення в межах 10",
 		add1000: "Додавання в межах 1000",
+		subtraction100: "Віднімання в межах 100",
+		multiplication10: "Множення в межах 10",
+		division10: "Ділення в межах 10",
 		correctly: "Правильно",
 		wrongly: "Неправильно",
 	}
