@@ -1,5 +1,10 @@
 // Functions
 
+function updateOptionLanguage(id, textCont, value) {
+	document.getElementById(id).textContent = textCont;
+	document.getElementById("select").querySelector(`option[value="${value}"]`).textContent = textCont;
+};
+
 function updateLanguage(language) {
 	const t = translations[language];
 	document.title = translations[language].title;
@@ -9,16 +14,14 @@ function updateLanguage(language) {
 	document.getElementById("skippedExamples").textContent = t.skippedExamples;
 	document.getElementById("solvedExamples").textContent = t.solvedExamples;
 	document.getElementById("mistakes").textContent = t.mistakes;
-	document.getElementById("add100").textContent = t.add100;
-	document.getElementById("select").querySelector('option[value="0"]').textContent = t.add100;
-	document.getElementById("add1000").textContent = t.add1000;
-	document.getElementById("select").querySelector('option[value="1"]').textContent = t.add1000;
-	document.getElementById("subtraction100").textContent = t.subtraction100;
-	document.getElementById("select").querySelector('option[value="2"]').textContent = t.subtraction100;
-	document.getElementById("multiplication10").textContent = t.multiplication10;
-	document.getElementById("select").querySelector('option[value="3"]').textContent = t.multiplication10;
-	document.getElementById("division10").textContent = t.division10;
-	document.getElementById("select").querySelector('option[value="4"]').textContent = t.division10;
+	updateOptionLanguage("add10", t.add10, "0");
+	updateOptionLanguage("add100", t.add100, "1");
+	updateOptionLanguage("add1000", t.add1000, "2");
+	updateOptionLanguage("subtraction10", t.subtraction10, "3");
+	updateOptionLanguage("subtraction100", t.subtraction100, "4");
+	updateOptionLanguage("subtraction1000", t.subtraction1000, "5");
+	updateOptionLanguage("multiplication10", t.multiplication10, "6");
+	updateOptionLanguage("division10", t.division10, "7");
 	document.getElementById("correctly").textContent = t.correctly;
 	document.getElementById("wrongly").textContent = t.wrongly;
 	document.getElementById("correctAnswerP").textContent = t.correctAnswerP;
@@ -135,79 +138,6 @@ document.addEventListener("keydown", function(event) {
 
 // App logic
 
-const translations = {
-	fr: {
-		title: "Formateur en mathématiques",
-		placeholder: "Entrez la réponse...",
-		checkButton: "CHÈQUE",
-		skipButton: "Passer cet exemple",
-		skippedExamples: "Exemples sautés:",
-		solvedExamples: "Exemples résolus:",
-		mistakes: "Erreurs:",
-		add100: "Addition dans les 100",
-		add1000: "Addition dans les 1000",
-		subtraction100: "Soustraction jusqu'à 100",
-		multiplication10: "Multiplication dans les 10",
-		division10: "Division dans les 10",
-		correctly: "Correctement",
-		wrongly: "À tort",
-		correctAnswerP: "Réponse correcte:",
-	},
-	de: {
-		title: "Mathematiktrainer",
-		placeholder: "Geben Sie hier ein, wie viel...",
-		checkButton: "ÜBERPRÜFEN",
-		skipButton: "Überspringen Sie dieses Beispiel",
-		skippedExamples: "Übersprungene Beispiele:",
-		solvedExamples: "Gelöste Beispiele:",
-		mistakes: "Fehler:",
-		add100: "Addition innerhalb von 100",
-		add1000: "Addition innerhalb von 1000",
-		subtraction100: "Subtraktion innerhalb von 100",
-		multiplication10: "Multiplikation innerhalb von 10",
-		division10: "Division innerhalb von 10",
-		correctly: "Korrekt",
-		wrongly: "Falsch",
-		correctAnswerP: "Richtige Antwort:",
-	},
-	ru: {
-		title: "Математический тренажёр",
-		placeholder: "Введите тут, сколько будет...",
-		checkButton: "ПРОВЕРИТЬ",
-		skipButton: "Пропустить этот пример",
-		skippedExamples: "Пропущено примеров:",
-		solvedExamples: "Решено примеров:",
-		mistakes: "Ошибок:",
-		add100: "Сложение в пределах 100",
-		add1000: "Сложение в пределах 1000",
-		subtraction100: "Вычитание в пределах 100",
-		multiplication10: "Умножение в пределах 10",
-		division10: "Деление в пределах 10",
-		correctly: "Правильно",
-		wrongly: "Неправильно",
-		correctAnswerP: "Правильный ответ:",
-	},
-	uk: {
-		title: "Математичний тренажер",
-		placeholder: "Введіть тут, скільки буде...",
-		checkButton: "ПЕРЕВІРИТИ",
-		skipButton: "Пропустити цей приклад",
-		skippedExamples: "Пропущено прикладів:",
-		solvedExamples: "Розв'язано прикладів:",
-		mistakes: "Помилок:",
-		add100: "Додавання в межах 100",
-		add1000: "Додавання в межах 1000",
-		subtraction100: "Віднімання в межах 100",
-		multiplication10: "Множення в межах 10",
-		division10: "Ділення в межах 10",
-		correctly: "Правильно",
-		wrongly: "Неправильно",
-		correctAnswerP: "Правильна відповідь:",
-	}
-}
-
-const browserLanguage = navigator.language.slice(0, 2);
-
 if (translations[browserLanguage]) {
 	updateLanguage(browserLanguage);
 };
@@ -223,4 +153,4 @@ const correctAnswerPText = document.getElementById("correctAnswerP").textContent
 
 let a, b, sign, variable;
 
-changeMode("+", 1, "0", "add100");
+changeMode("+", 1, "1", "add100");

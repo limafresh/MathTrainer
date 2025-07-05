@@ -5,9 +5,8 @@
 An interactive online math trainer for kids — practice solving math examples with ease on any device!
 
 ## Features
-- ➕ Addition within 100
-- ➕ Addition within 1000
-- ➖ Subtraction within 100
+- ➕ Addition within 10, 100, 1000
+- ➖ Subtraction within 10, 100, 1000
 - ✖️ Multiplication within 10
 - ➗ Division within 10
 

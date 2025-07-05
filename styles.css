@@ -83,6 +83,11 @@ select:active {
 	border-bottom: 2px solid;
 	border-color: rgb(145, 65, 172);
 }
+#sidebarOptions {
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+}
 .sidebarOption {
 	margin: 7px;
 	background-color: rgb(36, 31, 49);
