@@ -3,9 +3,9 @@
 function updateOptionLanguage(id, textCont, value) {
 	document.getElementById(id).textContent = textCont;
 	document.getElementById("select").querySelector(`option[value="${value}"]`).textContent = textCont;
-};
+}
 
-function updateLanguage(language) {
+function updateLanguage(language, translations) {
 	const t = translations[language];
 	document.title = translations[language].title;
 	document.getElementById("inputField").placeholder = t.placeholder;
@@ -30,25 +30,25 @@ function updateLanguage(language) {
 function openSidebar() {
 	document.getElementById("sidebar").classList.toggle("open");
 	document.getElementById("overlay").classList.toggle("open");
-};
+}
 
 function closeSidebar() {
 	document.getElementById("sidebar").classList.remove("open");
 	document.getElementById("overlay").classList.remove("open");
-};
+}
 
 function generateExample() {
 	a = Math.floor((Math.random() * 90 + 10) / variable);
 	b = Math.floor((Math.random() * 90 + 10) / variable);
-	
+
 	if (sign === "-") {
 		if (a < b) {
 			[a, b] = [b, a];
-		};
+		}
 	} else if (sign === "/") {
 		a = a * b;
-	};
-};
+	}
+}
 
 function resetCounters() {
 	skipped = 0;
@@ -59,7 +59,7 @@ function resetCounters() {
 	document.getElementById("skippedExamples").textContent = `${skippedText} ${skipped}`;
 	document.getElementById("solvedExamples").textContent = `${solvedText} ${solved}`;
 	document.getElementById("mistakes").textContent = `${mistakesText} ${mistakes}`;
-};
+}
 
 function nextExample() {
 	generateExample();
@@ -78,7 +78,7 @@ function checkExample() {
 		correctAnswer = a * b;
 	} else if (sign === "/") {
 		correctAnswer = a / b;
-	};
+	}
 
 	if (Number(document.getElementById("inputField").value) === correctAnswer) {
 		document.getElementById("correctlySound").play();
@@ -102,21 +102,21 @@ function checkExample() {
 		mistakes++;
 		document.getElementById("mistakes").textContent = `${mistakesText} ${mistakes}`;
 		nextExample();
-	};
-};
+	}
+}
 
 function skipExample() {
 	skipped++;
 	document.getElementById("skippedExamples").textContent = `${skippedText} ${skipped}`;
 	nextExample();
-};
+}
 
 function changeMode(newSign, newVariable, value, optionName) {
 	sign = newSign;
 	variable = newVariable;
 
 	document.getElementById("select").value = value;
-	
+
 	generateExample();
 	resetCounters();
 	closeSidebar();
@@ -133,24 +133,34 @@ function changeMode(newSign, newVariable, value, optionName) {
 document.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         checkExample();
-    };
-});
+    }
+})
 
 // App logic
-
-if (translations[browserLanguage]) {
-	updateLanguage(browserLanguage);
-};
 
 let skipped = 0;
 let solved = 0;
 let mistakes = 0;
 
-const skippedText = document.getElementById("skippedExamples").textContent;
-const solvedText = document.getElementById("solvedExamples").textContent;
-const mistakesText = document.getElementById("mistakes").textContent;
-const correctAnswerPText = document.getElementById("correctAnswerP").textContent;
-
 let a, b, sign, variable;
+let skippedText, solvedText, mistakesText, correctAnswerPText;
 
-changeMode("+", 1, "1", "add100");
+const browserLanguage = navigator.language.slice(0, 2);
+
+fetch("translations.json")
+	.then(response => response.json())
+	.then(translations => {
+		if (translations[browserLanguage]) {
+			updateLanguage(browserLanguage, translations);
+		}
+
+		skippedText = document.getElementById("skippedExamples").textContent;
+		solvedText = document.getElementById("solvedExamples").textContent;
+		mistakesText = document.getElementById("mistakes").textContent;
+		correctAnswerPText = document.getElementById("correctAnswerP").textContent;
+
+		changeMode("+", 1, "1", "add100");
+	})
+	.catch(error => {
+		console.error(error);
+	})
