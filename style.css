@@ -7,8 +7,9 @@ html, body {
 	color: white;
 	background-color: rgb(36, 31, 49);
 }
-p, .notification {
-	font-family: sans-serif;
+p, input, button {
+	font-family: "Noto Sans", sans-serif;
+	font-weight: bold;
 }
 #example {
 	display: flex;
@@ -16,25 +17,21 @@ p, .notification {
 	align-items: center;
 	margin: 0px;
 	font-size: 48px;
-	font-weight: bold;
+}
+input, button {
+	border-radius: 10px;
+	min-height: 50px;
+	font-size: 16px;
 }
 input {
 	color: black;
 	background-color: rgb(246, 245, 244);
 	border: 2px solid;
 	border-color: rgb(145, 65, 172);
-	border-radius: 10px;
-	min-height: 50px;
-	font-size: 16px;
-	font-weight: bold;
 }
-button, select {
+button {
 	color: white;
 	border: none;
-	border-radius: 10px;
-	min-height: 50px;
-	font-size: 16px;
-	font-weight: bold;
 }
 #checkButton {
 	background-color: rgb(145, 65, 172);
@@ -54,14 +51,16 @@ button, select {
 #skipButton:active {
 	background-color: rgb(26, 95, 180);
 }
-select {
-	background-color: rgb(145, 65, 172);
+#topbar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 50px;
 }
-select:hover {
-	background-color: rgb(129, 61, 156);
-}
-select:active {
-	background-color: rgb(97, 53, 131);
+#openSidebarBtn {
+	width: 50px;
+	border-radius: 100px;
+	background-color: rgb(36, 31, 49);
 }
 #sidebar {
 	display: flex;
@@ -92,10 +91,10 @@ select:active {
 	margin: 7px;
 	background-color: rgb(36, 31, 49);
 }
-.sidebarOption:hover {
+.sidebarOption:hover, #openSidebarBtn:hover {
 	background-color: rgb(61, 56, 70);
 }
-.sidebarOption:active {
+.sidebarOption:active, #openSidebarBtn:active {
 	background-color: rgb(94, 92, 100);
 }
 .sidebarOption.open {
@@ -128,7 +127,7 @@ select:active {
 	visibility: visible;
 	opacity: 0.7;
 }
-input:focus, select:focus, button:focus {
+input:focus, button:focus {
 	outline: none;
 }
 #counters {
@@ -140,13 +139,13 @@ input:focus, select:focus, button:focus {
 	color: black;
 	background-color: white;
 	font-size: 16px;
-	font-weight: bold;
 }
 #counters p {
 	display: flex;
 	align-items: center;
 	flex-grow: 1;
 	margin: 0px;
+	margin-left: 7px;
 }
 .notification {
 	display: flex;
@@ -157,8 +156,6 @@ input:focus, select:focus, button:focus {
 	width: 100%;
 	height: 100%;
 	color: white;
-	display: flex;
-	font-weight: bold;
 	justify-content: center;
 	align-items: center;
 	font-size: 48px;

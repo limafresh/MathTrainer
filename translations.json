@@ -1,4 +1,14 @@
 {
+	"en": {
+		"add10": "Addition within 10",
+		"add100": "Addition within 100",
+		"add1000": "Addition within 1000",
+		"subtraction10": "Subtraction within 10",
+		"subtraction100": "Subtraction within 100",
+		"subtraction1000": "Subtraction within 1000",
+		"multiplication10": "Multiplication within 10",
+		"division10": "Division within 10"
+	},
 	"fr": {
 		"title": "Formateur en mathématiques",
 		"placeholder": "Entrez la réponse...",
