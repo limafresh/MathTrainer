@@ -3,32 +3,26 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="style.css">
 		<link rel="icon" type="image/png" href="assets/icon.png">
 		<title>Math trainer</title>
 	</head>
 	<body>
-		<select id="select" onmousedown="return false" onclick="openSidebar()">
-			<option value="0">Addition within 10</option>
-			<option value="1">Addition within 100</option>
-			<option value="2">Addition within 1000</option>
-			<option value="3">Subtraction within 10</option>
-			<option value="4">Subtraction within 100</option>
-			<option value="5">Subtraction within 1000</option>
-			<option value="6">Multiplication within 10</option>
-			<option value="7">Division within 10</option>
-		</select>
+		<div id="topbar">
+			<button id="openSidebarBtn" onclick="openSidebar()">&#x2630</button>
+			<p id="modeName"></p>
+		</div>
 		<div id="sidebar">
 			<button id="closeSidebarBtn" onclick="closeSidebar()">&times;</button>
 			<div id="sidebarOptions">
-				<button class="sidebarOption" id="add10" onclick="changeMode('+', 10, '0', 'add10')">Addition within 10</button>
-				<button class="sidebarOption" id="add100" onclick="changeMode('+', 1, '1', 'add100')">Addition within 100</button>
-				<button class="sidebarOption" id="add1000" onclick="changeMode('+', 0.1, '2', 'add1000')">Addition within 1000</button>
-				<button class="sidebarOption" id="subtraction10" onclick="changeMode('-', 10, '3', 'subtraction10')">Subtraction within 10</button>
-				<button class="sidebarOption" id="subtraction100" onclick="changeMode('-', 1, '4', 'subtraction100')">Subtraction within 100</button>
-				<button class="sidebarOption" id="subtraction1000" onclick="changeMode('-', 0.1, '5', 'subtraction1000')">Subtraction within 1000</button>
-				<button class="sidebarOption" id="multiplication10" onclick="changeMode('*', 10, '6', 'multiplication10')">Multiplication within 10</button>
-				<button class="sidebarOption" id="division10" onclick="changeMode('/', 10, '7', 'division10')">Division within 10</button>
+				<button class="sidebarOption" id="add10" onclick="changeMode('+', 10, 'add10')">Addition within 10</button>
+				<button class="sidebarOption" id="add100" onclick="changeMode('+', 1, 'add100')">Addition within 100</button>
+				<button class="sidebarOption" id="add1000" onclick="changeMode('+', 0.1, 'add1000')">Addition within 1000</button>
+				<button class="sidebarOption" id="subtraction10" onclick="changeMode('-', 10, 'subtraction10')">Subtraction within 10</button>
+				<button class="sidebarOption" id="subtraction100" onclick="changeMode('-', 1, 'subtraction100')">Subtraction within 100</button>
+				<button class="sidebarOption" id="subtraction1000" onclick="changeMode('-', 0.1, 'subtraction1000')">Subtraction within 1000</button>
+				<button class="sidebarOption" id="multiplication10" onclick="changeMode('*', 10, 'multiplication10')">Multiplication within 10</button>
+				<button class="sidebarOption" id="division10" onclick="changeMode('/', 10, 'division10')">Division within 10</button>
 			</div>
 		</div>
 		<div id="overlay" onclick="closeSidebar()"></div>
