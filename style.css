@@ -7,8 +7,14 @@ html, body {
 	color: white;
 	background-color: rgb(36, 31, 49);
 }
+@font-face {
+	font-family: 'Noto Sans';
+	src: url('assets/Noto_Sans/static/NotoSans-Bold.ttf');
+	font-weight: bold;
+	font-style: normal;
+}
 p, input, button {
-	font-family: "Noto Sans", sans-serif;
+	font-family: 'Noto Sans';
 	font-weight: bold;
 }
 #example {
@@ -161,7 +167,7 @@ input:focus, button:focus {
 	font-size: 48px;
 	z-index: 1000;
 	visibility: hidden;
-} 
+}
 #correctlyDiv {
 	background-color: rgb(38, 162, 105);
 }

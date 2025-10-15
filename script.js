@@ -149,12 +149,10 @@ fetch('translations.json')
 	.then(data => {
 		translations = data; 
 		if (translations[browserLanguage] && browserLanguage != 'en') {
-			console.log(browserLanguage);
 			language = browserLanguage;
 			updateLanguage();
 		} else {
 			language = 'en';
-			console.log('GGG');
 		}
 
 		skippedText = document.getElementById('skippedExamples').textContent;
