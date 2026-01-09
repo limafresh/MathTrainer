@@ -7,67 +7,86 @@ html, body {
 	color: white;
 	background-color: rgb(36, 31, 49);
 }
+
 @font-face {
 	font-family: 'Noto Sans';
 	src: url('assets/Noto_Sans/static/NotoSans-Bold.ttf');
 	font-weight: bold;
 	font-style: normal;
 }
-p, input, button {
-	font-family: 'Noto Sans';
-	font-weight: bold;
-}
-#example {
+
+#exampleP {
 	display: flex;
 	flex-grow: 1;
 	align-items: center;
 	margin: 0px;
 	font-size: 48px;
 }
+
+p, input, button {
+	font-family: 'Noto Sans';
+	font-weight: bold;
+}
+
 input, button {
 	border-radius: 10px;
 	min-height: 50px;
 	font-size: 16px;
 }
+
+input:focus, button:focus {
+	outline: none;
+}
+
 input {
 	color: black;
 	background-color: rgb(246, 245, 244);
 	border: 2px solid;
 	border-color: rgb(145, 65, 172);
 }
+
 button {
 	color: white;
 	border: none;
 }
+
 #checkButton {
 	background-color: rgb(145, 65, 172);
 }
+
 #checkButton:hover {
 	background-color: rgb(129, 61, 156);
 }
+
 #checkButton:active {
 	background-color: rgb(97, 53, 131);
 }
+
 #skipButton {
 	background-color: rgb(53, 132, 228);
 }
+
 #skipButton:hover {
 	background-color: rgb(28, 113, 216);
 }
+
 #skipButton:active {
 	background-color: rgb(26, 95, 180);
 }
-#topbar {
+
+header {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	height: 50px;
 }
-#openSidebarBtn {
+
+#openSidebarButton {
 	width: 50px;
 	border-radius: 100px;
 	background-color: rgb(36, 31, 49);
 }
+
 #sidebar {
 	display: flex;
 	flex-direction: column;
@@ -81,6 +100,7 @@ button {
 	border-radius: 0 10px 10px 0;
 	transition: left 0.3s ease;
 }
+
 #sidebar.open {
 	left: 0;
 	border-right: 2px solid;
@@ -88,36 +108,45 @@ button {
 	border-bottom: 2px solid;
 	border-color: rgb(145, 65, 172);
 }
+
 #sidebarOptions {
 	display: flex;
 	flex-direction: column;
 	overflow-y: auto;
 }
+
 .sidebarOption {
 	margin: 7px;
 	background-color: rgb(36, 31, 49);
 }
-.sidebarOption:hover, #openSidebarBtn:hover {
+
+.sidebarOption:hover, #openSidebarButton:hover {
 	background-color: rgb(61, 56, 70);
 }
-.sidebarOption:active, #openSidebarBtn:active {
+
+.sidebarOption:active, #openSidebarButton:active {
 	background-color: rgb(94, 92, 100);
 }
+
 .sidebarOption.open {
 	background-color: rgb(145, 65, 172);
 }
-#closeSidebarBtn {
+
+#closeSidebarButton {
 	align-self: flex-end;
 	margin: 7px;
 	width: 50px;
 	background-color: rgb(224, 27, 36);
 }
-#closeSidebarBtn:hover {
+
+#closeSidebarButton:hover {
 	background-color: rgb(192, 28, 40);
 }
-#closeSidebarBtn:active {
+
+#closeSidebarButton:active {
 	background-color: rgb(165, 29, 45);
 }
+
 #overlay {
 	position: fixed;
 	top: 0;
@@ -129,13 +158,12 @@ button {
 	opacity: 0;
 	background-color: black;
 }
+
 #overlay.open {
 	visibility: visible;
 	opacity: 0.7;
 }
-input:focus, button:focus {
-	outline: none;
-}
+
 #counters {
 	display: flex;
 	flex-direction: column;
@@ -146,6 +174,7 @@ input:focus, button:focus {
 	background-color: white;
 	font-size: 16px;
 }
+
 #counters p {
 	display: flex;
 	align-items: center;
@@ -153,6 +182,7 @@ input:focus, button:focus {
 	margin: 0px;
 	margin-left: 7px;
 }
+
 .notification {
 	display: flex;
 	flex-direction: column;
@@ -168,12 +198,15 @@ input:focus, button:focus {
 	z-index: 1000;
 	visibility: hidden;
 }
+
 #correctlyDiv {
 	background-color: rgb(38, 162, 105);
 }
+
 #wronglyDiv {
 	background-color: rgb(237, 51, 59);
 }
+
 #correctAnswerP {
 	font-size: 24px;
 }

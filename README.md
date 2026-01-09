@@ -14,8 +14,9 @@ An interactive online math trainer for kids — practice solving math examples w
 
 ![screenshot](https://raw.githubusercontent.com/limafresh/MathTrainer/main/assets/screenshot.png)
 
-## How to use  
-The app generates random math examples.  
+## How to use
+The app generates random math examples.
+
 Enter the correct answer and click **CHECK** to see if you're right!
 
 ## Supported languages

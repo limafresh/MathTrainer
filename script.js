@@ -1,35 +1,58 @@
-// Functions
+const exampleP = document.getElementById('exampleP');
+const answerInput = document.getElementById('answerInput');
+const checkButton = document.getElementById('checkButton');
+const skipButton = document.getElementById('skipButton');
 
-function updateLanguage() {
-	const t = translations[language];
-	document.title = t.title;
-	document.getElementById('inputField').placeholder = t.placeholder;
-	document.getElementById('checkButton').textContent = t.checkButton;
-	document.getElementById('skipButton').textContent = t.skipButton;
-	document.getElementById('skippedExamples').textContent = t.skippedExamples;
-	document.getElementById('solvedExamples').textContent = t.solvedExamples;
-	document.getElementById('mistakes').textContent = t.mistakes;
-	document.getElementById('add10').textContent = t.add10;
-	document.getElementById('add100').textContent = t.add100;
-	document.getElementById('add1000').textContent = t.add1000;
-	document.getElementById('subtraction10').textContent = t.subtraction10;
-	document.getElementById('subtraction100').textContent = t.subtraction100;
-	document.getElementById('subtraction1000').textContent = t.subtraction1000;
-	document.getElementById('multiplication10').textContent = t.multiplication10;
-	document.getElementById('division10').textContent = t.division10;
-	document.getElementById('correctly').textContent = t.correctly;
-	document.getElementById('wrongly').textContent = t.wrongly;
-	document.getElementById('correctAnswerP').textContent = t.correctAnswerP;
-}
+const skippedExamplesP = document.getElementById('skippedExamplesP');
+const solvedExamplesP = document.getElementById('solvedExamplesP');
+const mistakesP = document.getElementById('mistakesP');
+
+const add10Btn = document.getElementById('add10Btn');
+const add100Btn = document.getElementById('add100Btn');
+const add1000Btn = document.getElementById('add1000Btn');
+
+const subtraction10Btn = document.getElementById('subtraction10Btn');
+const subtraction100Btn = document.getElementById('subtraction100Btn');
+const subtraction1000Btn = document.getElementById('subtraction1000Btn');
+
+const multiplication10Btn = document.getElementById('multiplication10Btn');
+const division10Btn = document.getElementById('division10Btn');
+
+const correctlyDiv = document.getElementById('correctlyDiv');
+const correctlyP = document.getElementById('correctlyP');
+const wronglyDiv = document.getElementById('wronglyDiv');
+const wronglyP = document.getElementById('wronglyP');
+const correctAnswerP = document.getElementById('correctAnswerP');
+
+const openSidebarButton = document.getElementById('openSidebarButton');
+const modeNameP = document.getElementById('modeNameP');
+
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+const closeSidebarButton = document.getElementById('closeSidebarButton');
+
+const correctlyAudio = document.getElementById('correctlyAudio');
+const wronglyAudio = document.getElementById('wronglyAudio');
+
+let skipped = 0;
+let solved = 0;
+let mistakes = 0;
+
+let a, b, sign, variable;
+let skippedText, solvedText, mistakesText, correctAnswerPText;
+
+const browserLanguage = navigator.language.slice(0, 2);
+let translations;
+let t;
 
 function openSidebar() {
-	document.getElementById('sidebar').classList.toggle('open');
-	document.getElementById('overlay').classList.toggle('open');
+	sidebar.classList.toggle('open');
+	overlay.classList.toggle('open');
 }
 
 function closeSidebar() {
-	document.getElementById('sidebar').classList.remove('open');
-	document.getElementById('overlay').classList.remove('open');
+	sidebar.classList.remove('open');
+	overlay.classList.remove('open');
 }
 
 function generateExample() {
@@ -45,21 +68,26 @@ function generateExample() {
 	}
 }
 
+function updateExampleText() {
+	exampleP.textContent = `${a}${sign}${b}=`;
+	answerInput.value = '';
+}
+
 function resetCounters() {
 	skipped = 0;
 	solved = 0;
 	mistakes = 0;
-	document.getElementById('example').textContent = `${a}${sign}${b}=`;
-	document.getElementById('inputField').value = '';
-	document.getElementById('skippedExamples').textContent = `${skippedText} ${skipped}`;
-	document.getElementById('solvedExamples').textContent = `${solvedText} ${solved}`;
-	document.getElementById('mistakes').textContent = `${mistakesText} ${mistakes}`;
+
+	updateExampleText();
+
+	skippedExamplesP.textContent = `${t['Skipped examples:'] || 'Skipped examples:'} ${skipped}`;
+	solvedExamplesP.textContent = `${t['Solved examples:'] || 'Solved examples:'} ${solved}`;
+	mistakesP.textContent = `${t['Mistakes:'] || 'Mistakes:'} ${mistakes}`;
 }
 
 function nextExample() {
 	generateExample();
-	document.getElementById('example').textContent = `${a}${sign}${b}=`;
-	document.getElementById('inputField').value = '';
+	updateExampleText();
 }
 
 function checkExample() {
@@ -75,42 +103,46 @@ function checkExample() {
 		correctAnswer = a / b;
 	}
 
-	if (Number(document.getElementById('inputField').value) === correctAnswer) {
-		document.getElementById('correctlySound').play();
-		document.getElementById('correctlyDiv').style.visibility = 'visible';
+	if (Number(answerInput.value) === correctAnswer) {
+		correctlyAudio.play();
+		correctlyDiv.style.visibility = 'visible';
+
 		setTimeout(() => {
-			document.getElementById('correctlyDiv').style.visibility = 'hidden';
+			correctlyDiv.style.visibility = 'hidden';
 		}, 1000);
+
 		solved++;
-		document.getElementById('solvedExamples').textContent = `${solvedText} ${solved}`;
+		solvedExamplesP.textContent = `${t['Solved examples:'] || 'Solved examples:'} ${solved}`;
+
 		nextExample();
-	}
-	else if (document.getElementById('inputField').value === '') {
-	}
-	else {
-		document.getElementById('wronglySound').play();
-		document.getElementById('wronglyDiv').style.visibility = 'visible';
-		document.getElementById('correctAnswerP').textContent = `${correctAnswerPText} ${correctAnswer}`;
+	} else if (answerInput.value === '') {
+	} else {
+		wronglyAudio.play();
+		wronglyDiv.style.visibility = 'visible';
+		correctAnswerP.textContent = `${t['Correct answer:'] || 'Correct answer:'} ${correctAnswer}`;
+
 		setTimeout(() => {
-			document.getElementById('wronglyDiv').style.visibility = 'hidden';
+			wronglyDiv.style.visibility = 'hidden';
 		}, 1000);
+
 		mistakes++;
-		document.getElementById('mistakes').textContent = `${mistakesText} ${mistakes}`;
+		mistakesP.textContent = `${t['Mistakes:'] || 'Mistakes:'} ${mistakes}`;
+
 		nextExample();
 	}
 }
 
 function skipExample() {
 	skipped++;
-	document.getElementById('skippedExamples').textContent = `${skippedText} ${skipped}`;
+	skippedExamplesP.textContent = `${t['Skipped examples:'] || 'Skipped examples:'} ${skipped}`;
 	nextExample();
 }
 
-function changeMode(newSign, newVariable, optionName) {
+function changeMode(newSign, newVariable, optionName, modeName) {
 	sign = newSign;
 	variable = newVariable;
 
-	document.getElementById('modeName').textContent = translations[language][optionName];
+	modeNameP.textContent = modeName;
 
 	generateExample();
 	resetCounters();
@@ -121,8 +153,8 @@ function changeMode(newSign, newVariable, optionName) {
 		option.classList.remove('open');
 	});
 
-	document.getElementById(optionName).disabled = true;
-	document.getElementById(optionName).classList.toggle('open');
+	optionName.disabled = true;
+	optionName.classList.toggle('open');
 }
 
 document.addEventListener('keydown', function(event) {
@@ -131,36 +163,79 @@ document.addEventListener('keydown', function(event) {
 	}
 })
 
-// App logic
+add10Btn.addEventListener('click', () => {
+	changeMode('+', 10, add10Btn, t['Addition within'] + ' 10');
+});
 
-let skipped = 0;
-let solved = 0;
-let mistakes = 0;
+add100Btn.addEventListener('click', () => {
+	changeMode('+', 1, add100Btn, t['Addition within'] + ' 100');
+});
 
-let a, b, sign, variable;
-let skippedText, solvedText, mistakesText, correctAnswerPText;
+add1000Btn.addEventListener('click', () => {
+	changeMode('+', 0.1, add1000Btn, t['Addition within'] + ' 1000');
+});
 
-const browserLanguage = navigator.language.slice(0, 2);
-let translations;
-let language;
+subtraction10Btn.addEventListener('click', () => {
+	changeMode('-', 10, subtraction10Btn, t['Subtraction within'] + ' 10');
+});
+
+subtraction100Btn.addEventListener('click', () => {
+	changeMode('-', 1, subtraction100Btn, t['Subtraction within'] + ' 100');
+});
+
+subtraction1000Btn.addEventListener('click', () => {
+	changeMode('-', 0.1, subtraction1000Btn, t['Subtraction within'] + ' 1000');
+});
+
+multiplication10Btn.addEventListener('click', () => {
+	changeMode('*', 10, multiplication10Btn, t['Multiplication within 10']);
+});
+
+division10Btn.addEventListener('click', () => {
+	changeMode('/', 10, division10Btn, t['Division within 10']);
+});
+
+openSidebarButton.addEventListener('click', openSidebar);
+closeSidebarButton.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+checkButton.addEventListener('click', checkExample);
+skipButton.addEventListener('click', skipExample);
 
 fetch('translations.json')
 	.then(response => response.json())
 	.then(data => {
-		translations = data; 
-		if (translations[browserLanguage] && browserLanguage != 'en') {
-			language = browserLanguage;
-			updateLanguage();
-		} else {
-			language = 'en';
+		translations = data;
+		t = translations[browserLanguage];
+
+		if (t) {
+			document.title = t['Math trainer'];
+
+			answerInput.placeholder = t['Enter the answer...'];
+			checkButton.textContent = t['CHECK'];
+			skipButton.textContent = t['Skip this example'];
+
+			skippedExamplesP.textContent = t['Skipped examples:'];
+			solvedExamplesP.textContent = t['Solved examples:'];
+			mistakesP.textContent = t['Mistakes'];
+
+			[10, 100, 1000].forEach(limit => {
+				document.getElementById('add' + limit + 'Btn').textContent =
+					t['Addition within'] + ' ' + limit;
+				document.getElementById('subtraction' + limit + 'Btn').textContent =
+					t['Subtraction within'] + ' ' + limit;
+			});
+
+			multiplication10Btn.textContent = t['Multiplication within 10'];
+			division10Btn.textContent = t['Division within 10'];
+
+			correctlyP.textContent = t['Correctly'];
+			wronglyP.textContent = t['Wrongly'];
+
+			correctAnswerP.textContent = t['Correct answer:'];
 		}
 
-		skippedText = document.getElementById('skippedExamples').textContent;
-		solvedText = document.getElementById('solvedExamples').textContent;
-		mistakesText = document.getElementById('mistakes').textContent;
-		correctAnswerPText = document.getElementById('correctAnswerP').textContent;
-
-		changeMode('+', 1, 'add100');
+		changeMode('+', 1, add100Btn, t['Addition within'] + ' 100');
 	})
 	.catch(error => {
 		console.error(error);
