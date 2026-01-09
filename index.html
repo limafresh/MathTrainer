@@ -3,53 +3,63 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta name="theme-color" content="rgb(36, 31, 49)">
+
 		<link rel="stylesheet" href="style.css">
 		<link rel="icon" type="image/png" href="assets/icon.png">
+
 		<title>Math trainer</title>
 	</head>
 	<body>
-		<div id="topbar">
-			<button id="openSidebarBtn" onclick="openSidebar()">&#x2630</button>
-			<p id="modeName"></p>
-		</div>
+		<header>
+			<button id="openSidebarButton">&#x2630</button>
+			<p id="modeNameP"></p>
+		</header>
+
 		<div id="sidebar">
-			<button id="closeSidebarBtn" onclick="closeSidebar()">&times;</button>
+			<button id="closeSidebarButton">&times;</button>
 			<div id="sidebarOptions">
-				<button class="sidebarOption" id="add10" onclick="changeMode('+', 10, 'add10')">Addition within 10</button>
-				<button class="sidebarOption" id="add100" onclick="changeMode('+', 1, 'add100')">Addition within 100</button>
-				<button class="sidebarOption" id="add1000" onclick="changeMode('+', 0.1, 'add1000')">Addition within 1000</button>
-				<button class="sidebarOption" id="subtraction10" onclick="changeMode('-', 10, 'subtraction10')">Subtraction within 10</button>
-				<button class="sidebarOption" id="subtraction100" onclick="changeMode('-', 1, 'subtraction100')">Subtraction within 100</button>
-				<button class="sidebarOption" id="subtraction1000" onclick="changeMode('-', 0.1, 'subtraction1000')">Subtraction within 1000</button>
-				<button class="sidebarOption" id="multiplication10" onclick="changeMode('*', 10, 'multiplication10')">Multiplication within 10</button>
-				<button class="sidebarOption" id="division10" onclick="changeMode('/', 10, 'division10')">Division within 10</button>
+				<button class="sidebarOption" id="add10Btn">Addition within 10</button>
+				<button class="sidebarOption" id="add100Btn">Addition within 100</button>
+				<button class="sidebarOption" id="add1000Btn">Addition within 1000</button>
+				<button class="sidebarOption" id="subtraction10Btn">Subtraction within 10</button>
+				<button class="sidebarOption" id="subtraction100Btn">Subtraction within 100</button>
+				<button class="sidebarOption" id="subtraction1000Btn">Subtraction within 1000</button>
+				<button class="sidebarOption" id="multiplication10Btn">Multiplication within 10</button>
+				<button class="sidebarOption" id="division10Btn">Division within 10</button>
 			</div>
 		</div>
-		<div id="overlay" onclick="closeSidebar()"></div>
-		<p id="example">2+2=</p>
-		<input id="inputField" placeholder="Enter the answer..." type="text">
-		<button id="checkButton" onclick="checkExample()">CHECK</button>
-		<button id="skipButton" onclick="skipExample()">Skip this example</button>
+		<div id="overlay"></div>
+
+		<p id="exampleP">2+2=</p>
+		<input type="text" id="answerInput" placeholder="Enter the answer..." inputmode="numeric">
+
+		<button id="checkButton">CHECK</button>
+		<button id="skipButton">Skip this example</button>
+
 		<div id="counters">
-			<p id="skippedExamples">Skipped examples:</p>
-			<p id="solvedExamples">Solved examples:</p>
-			<p id="mistakes">Mistakes:</p>
+			<p id="skippedExamplesP">Skipped examples:</p>
+			<p id="solvedExamplesP">Solved examples:</p>
+			<p id="mistakesP">Mistakes:</p>
 		</div>
+
 		<div class="notification" id="correctlyDiv">
-			<p id="correctly">Correctly</p>
+			<p id="correctlyP">Correctly</p>
 		</div>
+
 		<div class="notification" id="wronglyDiv">
-			<p id="wrongly">Wrongly</p>
+			<p id="wronglyP">Wrongly</p>
 			<p id="correctAnswerP">Correct answer:</p>
 		</div>
-		<audio id="correctlySound" preload="auto">
-			<source src="assets/bell.wav"
-			type="audio/wav">
+
+		<audio id="correctlyAudio" preload="auto">
+			<source src="assets/bell.wav" type="audio/wav">
 		</audio>
-		<audio id="wronglySound" preload="auto">
-			<source src="assets/losetrumpet.wav"
-			type="audio/wav">
+
+		<audio id="wronglyAudio" preload="auto">
+			<source src="assets/losetrumpet.wav" type="audio/wav">
 		</audio>
+
 		<script src="script.js"></script>
 	</body>
 </html>
