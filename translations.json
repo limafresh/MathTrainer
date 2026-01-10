@@ -62,5 +62,21 @@
 		"Correctly": "Правильно",
 		"Wrongly": "Неправильно",
 		"Correct answer:": "Правильна відповідь:"
+	},
+	"it": {  
+		"Math trainer": "Allenamento di matematica / Esercitatore di matematica",  
+		"Enter the answer...": "Inserisci la risposta...",  
+		"CHECK": "CONTROLLA",  
+		"Skip this example": "Salta questo esempio",  
+		"Skipped examples:": "Esempi saltati:",  
+		"Solved examples:": "Esempi risolti:",  
+		"Mistakes:": "Errori:",  
+		"Addition within": "Addizioni entro il / Addizioni fino al",  
+		"Subtraction within": "Sottrazioni entro il / Sottrazioni fino al",  
+		"Multiplication within 10": "Moltiplicazioni entro il 10 / Moltiplicazioni fino al 10",  
+		"Division within 10": "Divisioni entro il 10 / Divisioni fino al 10",  
+		"Correctly": "Correttamente",  
+		"Wrongly": "Erroneamente",  
+		"Correct answer:": "Risposta corretta:"  
 	}
 }
