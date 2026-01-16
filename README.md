@@ -25,6 +25,7 @@ Enter the correct answer and click **CHECK** to see if you're right!
 - 🇩🇪 Deutsch
 - 🇺🇦 Ukrainian
 - 🇷🇺 Russian
+- 🇮🇹 Italian
 
 ## Credits
 Sound effects authors: *Fupy*, *0new4y*, under CC0; wood texture is by *SpringySpringo*, under CC0. From [OpenGameArt.org](https://opengameart.org/).

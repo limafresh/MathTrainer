@@ -31,6 +31,22 @@
 		"Wrongly": "Falsch",
 		"Correct answer:": "Richtige Antwort:"
 	},
+	"it": {
+		"Math trainer": "Allenatore di matematica",
+		"Enter the answer...": "Inserisci la risposta...",
+		"CHECK": "VERIFICA",
+		"Skip this example": "Salta questo esempio",
+		"Skipped examples:": "Esempi saltati:",
+		"Solved examples:": "Esempi risolti:",
+		"Mistakes:": "Errori:",
+		"Addition within": "Addizione entro",
+		"Subtraction within": "Sottrazione entro",
+		"Multiplication within 10": "Moltiplicazione entro il 10",
+		"Division within 10": "Divisione entro il 10",
+		"Correctly": "Correttamente",
+		"Wrongly": "Erroneamente",
+		"Correct answer:": "Risposta corretta:"
+	},
 	"ru": {
 		"Math trainer": "Математический тренажёр",
 		"Enter the answer...": "Введите тут, сколько будет...",
