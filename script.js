@@ -42,8 +42,11 @@ let a, b, sign, variable;
 let skippedText, solvedText, mistakesText, correctAnswerPText;
 
 const browserLanguage = navigator.language.slice(0, 2);
-let translations;
-let t;
+let t = {};
+
+function tr(key) {
+	return t[key] || key;
+}
 
 function openSidebar() {
 	sidebar.classList.toggle('open');
@@ -80,9 +83,9 @@ function resetCounters() {
 
 	updateExampleText();
 
-	skippedExamplesP.textContent = `${t['Skipped examples:'] || 'Skipped examples:'} ${skipped}`;
-	solvedExamplesP.textContent = `${t['Solved examples:'] || 'Solved examples:'} ${solved}`;
-	mistakesP.textContent = `${t['Mistakes:'] || 'Mistakes:'} ${mistakes}`;
+	skippedExamplesP.textContent = `${tr('Skipped examples:')} ${skipped}`;
+	solvedExamplesP.textContent = `${tr('Solved examples:')} ${solved}`;
+	mistakesP.textContent = `${tr('Mistakes:')} ${mistakes}`;
 }
 
 function nextExample() {
@@ -112,21 +115,21 @@ function checkExample() {
 		}, 1000);
 
 		solved++;
-		solvedExamplesP.textContent = `${t['Solved examples:'] || 'Solved examples:'} ${solved}`;
+		solvedExamplesP.textContent = `${tr('Solved examples:')} ${solved}`;
 
 		nextExample();
 	} else if (answerInput.value === '') {
 	} else {
 		wronglyAudio.play();
 		wronglyDiv.style.visibility = 'visible';
-		correctAnswerP.textContent = `${t['Correct answer:'] || 'Correct answer:'} ${correctAnswer}`;
+		correctAnswerP.textContent = `${tr('Correct answer:')} ${correctAnswer}`;
 
 		setTimeout(() => {
 			wronglyDiv.style.visibility = 'hidden';
 		}, 1000);
 
 		mistakes++;
-		mistakesP.textContent = `${t['Mistakes:'] || 'Mistakes:'} ${mistakes}`;
+		mistakesP.textContent = `${tr('Mistakes:')} ${mistakes}`;
 
 		nextExample();
 	}
@@ -134,7 +137,7 @@ function checkExample() {
 
 function skipExample() {
 	skipped++;
-	skippedExamplesP.textContent = `${t['Skipped examples:'] || 'Skipped examples:'} ${skipped}`;
+	skippedExamplesP.textContent = `${tr('Skipped examples:')} ${skipped}`;
 	nextExample();
 }
 
@@ -164,35 +167,35 @@ document.addEventListener('keydown', function(event) {
 })
 
 add10Btn.addEventListener('click', () => {
-	changeMode('+', 10, add10Btn, t['Addition within'] + ' 10');
+	changeMode('+', 10, add10Btn, tr('Addition within') + ' 10');
 });
 
 add100Btn.addEventListener('click', () => {
-	changeMode('+', 1, add100Btn, t['Addition within'] + ' 100');
+	changeMode('+', 1, add100Btn, tr('Addition within') + ' 100');
 });
 
 add1000Btn.addEventListener('click', () => {
-	changeMode('+', 0.1, add1000Btn, t['Addition within'] + ' 1000');
+	changeMode('+', 0.1, add1000Btn, tr('Addition within') + ' 1000');
 });
 
 subtraction10Btn.addEventListener('click', () => {
-	changeMode('-', 10, subtraction10Btn, t['Subtraction within'] + ' 10');
+	changeMode('-', 10, subtraction10Btn, tr('Subtraction within') + ' 10');
 });
 
 subtraction100Btn.addEventListener('click', () => {
-	changeMode('-', 1, subtraction100Btn, t['Subtraction within'] + ' 100');
+	changeMode('-', 1, subtraction100Btn, tr('Subtraction within') + ' 100');
 });
 
 subtraction1000Btn.addEventListener('click', () => {
-	changeMode('-', 0.1, subtraction1000Btn, t['Subtraction within'] + ' 1000');
+	changeMode('-', 0.1, subtraction1000Btn, tr('Subtraction within') + ' 1000');
 });
 
 multiplication10Btn.addEventListener('click', () => {
-	changeMode('*', 10, multiplication10Btn, t['Multiplication within 10']);
+	changeMode('*', 10, multiplication10Btn, tr('Multiplication within 10'));
 });
 
 division10Btn.addEventListener('click', () => {
-	changeMode('/', 10, division10Btn, t['Division within 10']);
+	changeMode('/', 10, division10Btn, tr('Division within 10'));
 });
 
 openSidebarButton.addEventListener('click', openSidebar);
@@ -205,10 +208,11 @@ skipButton.addEventListener('click', skipExample);
 fetch('translations.json')
 	.then(response => response.json())
 	.then(data => {
-		translations = data;
-		t = translations[browserLanguage];
+		const translations = data[browserLanguage];
 
-		if (t) {
+		if (translations) {
+			t = translations;
+
 			document.title = t['Math trainer'];
 
 			answerInput.placeholder = t['Enter the answer...'];
@@ -235,7 +239,7 @@ fetch('translations.json')
 			correctAnswerP.textContent = t['Correct answer:'];
 		}
 
-		changeMode('+', 1, add100Btn, t['Addition within'] + ' 100');
+		changeMode('+', 1, add100Btn, tr('Addition within') + ' 100');
 	})
 	.catch(error => {
 		console.error(error);

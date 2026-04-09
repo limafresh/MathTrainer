@@ -1,11 +1,8 @@
-html, body {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	gap: 7px;
-	user-select: none;
-	color: white;
-	background-color: rgb(36, 31, 49);
+:root {
+	--indent: 7px;
+	--btn-height: 50px;
+	--large-font-size: 48px;
+	--bg-color: rgb(36, 31, 49);
 }
 
 @font-face {
@@ -15,23 +12,43 @@ html, body {
 	font-style: normal;
 }
 
-#exampleP {
-	display: flex;
-	flex-grow: 1;
-	align-items: center;
-	margin: 0px;
-	font-size: 48px;
+* {
+	margin: 0;
+	padding: 0;
 }
 
-p, input, button {
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	user-select: none;
+	color: white;
+	background-color: var(--bg-color);
 	font-family: 'Noto Sans';
 	font-weight: bold;
 }
 
+#container, #counters, #exampleP {
+	flex: 1;
+}
+
+#container, #counters, #sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: var(--indent);
+	padding: var(--indent);
+}
+
+#exampleP {
+	display: flex;
+	align-items: center;
+	font-size: var(--large-font-size);
+}
+
 input, button {
+	font: bold 16px 'Noto Sans';
 	border-radius: 10px;
-	min-height: 50px;
-	font-size: 16px;
+	min-height: var(--btn-height);
 }
 
 input:focus, button:focus {
@@ -46,86 +63,79 @@ input {
 }
 
 button {
+	background-color: var(--btn-color);
 	color: white;
 	border: none;
 }
 
+button:hover {
+	background-color: var(--btn-hover-color);
+}
+
+button:active {
+	background-color: var(--btn-active-color);
+}
+
 #checkButton {
-	background-color: rgb(145, 65, 172);
-}
-
-#checkButton:hover {
-	background-color: rgb(129, 61, 156);
-}
-
-#checkButton:active {
-	background-color: rgb(97, 53, 131);
+	--btn-color: rgb(145, 65, 172);
+	--btn-hover-color: rgb(129, 61, 156);
+	--btn-active-color: rgb(97, 53, 131);
 }
 
 #skipButton {
-	background-color: rgb(53, 132, 228);
-}
-
-#skipButton:hover {
-	background-color: rgb(28, 113, 216);
-}
-
-#skipButton:active {
-	background-color: rgb(26, 95, 180);
+	--btn-color: rgb(53, 132, 228);
+	--btn-hover-color: rgb(28, 113, 216);
+	--btn-active-color: rgb(26, 95, 180);
 }
 
 header {
 	display: flex;
-	flex-direction: row;
 	align-items: center;
-	height: 50px;
+	height: var(--btn-height);
+	gap: var(--indent);
 }
 
 #openSidebarButton {
-	width: 50px;
-	border-radius: 100px;
-	background-color: rgb(36, 31, 49);
+	border-radius: 50%;
 }
 
 #sidebar {
-	display: flex;
-	flex-direction: column;
 	position: fixed;
+	box-sizing: border-box;
 	top: 0;
 	left: -300px;
 	width: 300px;
-	height: 100%;
+	height: 100vh;
 	z-index: 1000;
-	background-color: rgb(36, 31, 49);
+	background-color: var(--bg-color);
 	border-radius: 0 10px 10px 0;
 	transition: left 0.3s ease;
 }
 
+@media (max-width: 300px) {
+	#sidebar {
+		left: -100vw;
+		width: 100vw;
+	}
+}
+
 #sidebar.open {
 	left: 0;
-	border-right: 2px solid;
-	border-top: 2px solid;
-	border-bottom: 2px solid;
-	border-color: rgb(145, 65, 172);
+	border: 2px solid rgb(145, 65, 172);
+	border-left: none;
 }
 
 #sidebarOptions {
 	display: flex;
 	flex-direction: column;
+	gap: var(--indent);
 	overflow-y: auto;
 }
 
-.sidebarOption {
-	margin: 7px;
-	background-color: rgb(36, 31, 49);
-}
-
-.sidebarOption:hover, #openSidebarButton:hover {
-	background-color: rgb(61, 56, 70);
-}
-
-.sidebarOption:active, #openSidebarButton:active {
-	background-color: rgb(94, 92, 100);
+.sidebarOption, #openSidebarButton {
+	--btn-color: var(--bg-color);
+	--btn-hover-color: rgb(61, 56, 70);
+	--btn-active-color: rgb(94, 92, 100);
 }
 
 .sidebarOption.open {
@@ -134,27 +144,26 @@ header {
 
 #closeSidebarButton {
 	align-self: flex-end;
-	margin: 7px;
-	width: 50px;
-	background-color: rgb(224, 27, 36);
+	--btn-color: rgb(224, 27, 36);
+	--btn-hover-color: rgb(192, 28, 40);
+	--btn-active-color: rgb(165, 29, 45);
 }
 
-#closeSidebarButton:hover {
-	background-color: rgb(192, 28, 40);
+#openSidebarButton, #closeSidebarButton {
+	width: var(--btn-height);
 }
 
-#closeSidebarButton:active {
-	background-color: rgb(165, 29, 45);
-}
-
-#overlay {
+#overlay, .notification {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 999;
+	width: 100vw;
+	height: 100vh;
 	visibility: hidden;
+}
+
+#overlay {
+	z-index: 999;
 	opacity: 0;
 	background-color: black;
 }
@@ -165,38 +174,22 @@ header {
 }
 
 #counters {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-	gap: 7px;
+	justify-content: space-around;
 	border-radius: 10px;
 	color: black;
 	background-color: white;
-	font-size: 16px;
-}
-
-#counters p {
-	display: flex;
-	align-items: center;
-	flex-grow: 1;
-	margin: 0px;
-	margin-left: 7px;
 }
 
 .notification {
 	display: flex;
 	flex-direction: column;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+	gap: 50px;
 	color: white;
 	justify-content: center;
 	align-items: center;
-	font-size: 48px;
+	text-align: center;
+	font-size: var(--large-font-size);
 	z-index: 1000;
-	visibility: hidden;
 }
 
 #correctlyDiv {

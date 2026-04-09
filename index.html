@@ -5,42 +5,46 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="theme-color" content="rgb(36, 31, 49)">
 
-		<link rel="stylesheet" href="style.css">
-		<link rel="icon" type="image/png" href="assets/icon.png">
-
 		<title>Math trainer</title>
+
+		<link rel="icon" type="image/png" href="assets/icon.png">
+		<link rel="stylesheet" href="style.css">
+
+		<script src="script.js" defer></script>
 	</head>
 	<body>
-		<header>
-			<button id="openSidebarButton">&#x2630</button>
-			<p id="modeNameP"></p>
-		</header>
+		<div id="container">
+			<header>
+				<button id="openSidebarButton">&#x2630</button>
+				<p id="modeNameP"></p>
+			</header>
 
-		<div id="sidebar">
-			<button id="closeSidebarButton">&times;</button>
-			<div id="sidebarOptions">
-				<button class="sidebarOption" id="add10Btn">Addition within 10</button>
-				<button class="sidebarOption" id="add100Btn">Addition within 100</button>
-				<button class="sidebarOption" id="add1000Btn">Addition within 1000</button>
-				<button class="sidebarOption" id="subtraction10Btn">Subtraction within 10</button>
-				<button class="sidebarOption" id="subtraction100Btn">Subtraction within 100</button>
-				<button class="sidebarOption" id="subtraction1000Btn">Subtraction within 1000</button>
-				<button class="sidebarOption" id="multiplication10Btn">Multiplication within 10</button>
-				<button class="sidebarOption" id="division10Btn">Division within 10</button>
+			<div id="sidebar">
+				<button id="closeSidebarButton">&times;</button>
+				<div id="sidebarOptions">
+					<button class="sidebarOption" id="add10Btn">Addition within 10</button>
+					<button class="sidebarOption" id="add100Btn">Addition within 100</button>
+					<button class="sidebarOption" id="add1000Btn">Addition within 1000</button>
+					<button class="sidebarOption" id="subtraction10Btn">Subtraction within 10</button>
+					<button class="sidebarOption" id="subtraction100Btn">Subtraction within 100</button>
+					<button class="sidebarOption" id="subtraction1000Btn">Subtraction within 1000</button>
+					<button class="sidebarOption" id="multiplication10Btn">Multiplication within 10</button>
+					<button class="sidebarOption" id="division10Btn">Division within 10</button>
+				</div>
 			</div>
-		</div>
-		<div id="overlay"></div>
+			<div id="overlay"></div>
 
-		<p id="exampleP">2+2=</p>
-		<input type="text" id="answerInput" placeholder="Enter the answer..." inputmode="numeric">
+			<p id="exampleP">2+2=</p>
+			<input type="text" id="answerInput" placeholder="Enter the answer..." inputmode="numeric">
 
-		<button id="checkButton">CHECK</button>
-		<button id="skipButton">Skip this example</button>
+			<button id="checkButton">CHECK</button>
+			<button id="skipButton">Skip this example</button>
 
-		<div id="counters">
-			<p id="skippedExamplesP">Skipped examples:</p>
-			<p id="solvedExamplesP">Solved examples:</p>
-			<p id="mistakesP">Mistakes:</p>
+			<div id="counters">
+				<p id="skippedExamplesP">Skipped examples:</p>
+				<p id="solvedExamplesP">Solved examples:</p>
+				<p id="mistakesP">Mistakes:</p>
+			</div>
 		</div>
 
 		<div class="notification" id="correctlyDiv">
@@ -59,7 +63,5 @@
 		<audio id="wronglyAudio" preload="auto">
 			<source src="assets/losetrumpet.wav" type="audio/wav">
 		</audio>
-
-		<script src="script.js"></script>
 	</body>
 </html>
