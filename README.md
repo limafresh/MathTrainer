@@ -32,11 +32,11 @@ Enter the correct answer and click **CHECK** to see if you're right!
 
 ## Credits
 
-## Sound effects (CC0)
+### Sound effects (CC0)
 
 - by *Fupi*: <https://opengameart.org/content/correct-bell>
 - by *0new4y*: <https://opengameart.org/content/game-over-trumpet-sfx>
 
-# Wood texture (CC0)
+### Wood texture (CC0)
 
 - by *SpringySpringo*: <https://opengameart.org/content/realistic-seamless-wood-texture>
