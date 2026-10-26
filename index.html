@@ -13,54 +13,54 @@
 		<script src="script.js" defer></script>
 	</head>
 	<body>
-		<div id="container">
-			<header>
-				<button id="openSidebarButton">&#x2630</button>
-				<p id="modeNameP"></p>
-			</header>
+		<header>
+			<button id="open-sidebar">&#x2630</button>
+			<span id="mode-name"></span>
+		</header>
 
-			<div id="sidebar">
-				<button id="closeSidebarButton">&times;</button>
-				<div id="sidebarOptions">
-					<button class="sidebarOption" id="add10Btn">Addition within 10</button>
-					<button class="sidebarOption" id="add100Btn">Addition within 100</button>
-					<button class="sidebarOption" id="add1000Btn">Addition within 1000</button>
-					<button class="sidebarOption" id="subtraction10Btn">Subtraction within 10</button>
-					<button class="sidebarOption" id="subtraction100Btn">Subtraction within 100</button>
-					<button class="sidebarOption" id="subtraction1000Btn">Subtraction within 1000</button>
-					<button class="sidebarOption" id="multiplication10Btn">Multiplication within 10</button>
-					<button class="sidebarOption" id="division10Btn">Division within 10</button>
-				</div>
+		<span id="example">2+2=</span>
+		<input id="answer-input" type="text" placeholder="Enter the answer..." inputmode="numeric">
+		<button id="check">CHECK</button>
+		<button id="skip">Skip this example</button>
+
+		<div id="counters">
+			<div>
+				<span id="skipped-text">Skipped examples: </span>
+				<span id="skipped">0</span>
 			</div>
-			<div id="overlay"></div>
-
-			<p id="exampleP">2+2=</p>
-			<input type="text" id="answerInput" placeholder="Enter the answer..." inputmode="numeric">
-
-			<button id="checkButton">CHECK</button>
-			<button id="skipButton">Skip this example</button>
-
-			<div id="counters">
-				<p id="skippedExamplesP">Skipped examples:</p>
-				<p id="solvedExamplesP">Solved examples:</p>
-				<p id="mistakesP">Mistakes:</p>
+			<div>
+				<span id="solved-text">Solved examples: </span>
+				<span id="solved">0</span>
+			</div>
+			<div>
+				<span id="mistakes-text">Mistakes: </span>
+				<span id="mistakes">0</span>
 			</div>
 		</div>
 
-		<div class="notification" id="correctlyDiv">
-			<p id="correctlyP">Correctly</p>
+		<div hidden id="sidebar-overlay" class="overlay"></div>
+		<div id="sidebar">
+			<button id="close-sidebar">&times;</button>
+			<div id="mode-buttons"></div>
 		</div>
 
-		<div class="notification" id="wronglyDiv">
-			<p id="wronglyP">Wrongly</p>
-			<p id="correctAnswerP">Correct answer:</p>
+		<div hidden id="correctly-overlay" class="overlay notification">
+			<span id="correctly">Correctly</span>
 		</div>
 
-		<audio id="correctlyAudio" preload="auto">
+		<div hidden id="wrongly-overlay" class="overlay notification">
+			<span id="wrongly">Wrongly</span>
+			<div id="correct-answer-div">
+				<span id="correct-answer-text">Correct answer: </span>
+				<span id="correct-answer">0</span>
+			</div>
+		</div>
+
+		<audio id="correctly-sound" preload="auto">
 			<source src="assets/bell.wav" type="audio/wav">
 		</audio>
 
-		<audio id="wronglyAudio" preload="auto">
+		<audio id="wrongly-sound" preload="auto">
 			<source src="assets/losetrumpet.wav" type="audio/wav">
 		</audio>
 	</body>

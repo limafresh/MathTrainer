@@ -5,6 +5,7 @@
 An interactive online math trainer for kids — practice solving math examples with ease on any device!
 
 ## Features
+
 - ➕ Addition within 10, 100, 1000
 - ➖ Subtraction within 10, 100, 1000
 - ✖️ Multiplication within 10
@@ -15,11 +16,13 @@ An interactive online math trainer for kids — practice solving math examples w
 ![screenshot](https://raw.githubusercontent.com/limafresh/MathTrainer/main/assets/screenshot.png)
 
 ## How to use
+
 The app generates random math examples.
 
 Enter the correct answer and click **CHECK** to see if you're right!
 
 ## Supported languages
+
 - 🇬🇧 English
 - 🇫🇷 French
 - 🇩🇪 Deutsch
@@ -28,4 +31,12 @@ Enter the correct answer and click **CHECK** to see if you're right!
 - 🇮🇹 Italian
 
 ## Credits
-Sound effects authors: *Fupy*, *0new4y*, under CC0; wood texture is by *SpringySpringo*, under CC0. From [OpenGameArt.org](https://opengameart.org/).
+
+## Sound effects (CC0)
+
+- by *Fupi*: <https://opengameart.org/content/correct-bell>
+- by *0new4y*: <https://opengameart.org/content/game-over-trumpet-sfx>
+
+# Wood texture (CC0)
+
+- by *SpringySpringo*: <https://opengameart.org/content/realistic-seamless-wood-texture>

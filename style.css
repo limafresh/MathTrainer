@@ -17,58 +17,75 @@
 	padding: 0;
 }
 
-html {
+html, body {
 	height: 100%;
 }
 
 body {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	user-select: none;
 	color: white;
 	background-color: var(--bg-color);
 	font-family: 'Noto Sans';
 	font-weight: bold;
+	box-sizing: border-box;
 }
 
-#container, #counters, #exampleP {
-	flex: 1;
-}
-
-#container, #counters, #sidebar {
+body, #counters, #sidebar {
 	display: flex;
 	flex-direction: column;
 	gap: var(--indent);
 	padding: var(--indent);
 }
 
-#exampleP {
+[hidden] {
+	display: none !important;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	height: var(--btn-height);
+	gap: var(--indent);
+}
+
+#open-sidebar {
+	border-radius: 50%;
+}
+
+#open-sidebar, #close-sidebar {
+	width: var(--btn-height);
+}
+
+#open-sidebar, #mode-buttons button {
+	--btn-color: var(--bg-color);
+	--btn-hover-color: rgb(61, 56, 70);
+	--btn-active-color: rgb(94, 92, 100);
+}
+
+#example, #counters {
+	flex: 1;
+}
+
+#example {
 	display: flex;
 	align-items: center;
 	font-size: var(--large-font-size);
 }
 
 input, button {
-	font: bold 16px 'Noto Sans';
-	border-radius: 10px;
 	min-height: var(--btn-height);
-}
-
-input:focus, button:focus {
-	outline: none;
+	border-radius: 10px;
+	font: bold 16px 'Noto Sans';
 }
 
 input {
 	color: black;
 	background-color: rgb(246, 245, 244);
-	border: 2px solid;
-	border-color: rgb(145, 65, 172);
+	border: 2px solid rgb(145, 65, 172);
 }
 
 button {
-	background-color: var(--btn-color);
 	color: white;
+	background-color: var(--btn-color);
 	border: none;
 }
 
@@ -80,37 +97,45 @@ button:active {
 	background-color: var(--btn-active-color);
 }
 
-#checkButton {
+#check {
 	--btn-color: rgb(145, 65, 172);
 	--btn-hover-color: rgb(129, 61, 156);
 	--btn-active-color: rgb(97, 53, 131);
 }
 
-#skipButton {
+#skip {
 	--btn-color: rgb(53, 132, 228);
 	--btn-hover-color: rgb(28, 113, 216);
 	--btn-active-color: rgb(26, 95, 180);
 }
 
-header {
-	display: flex;
-	align-items: center;
-	height: var(--btn-height);
-	gap: var(--indent);
+#counters {
+	justify-content: space-around;
+	border-radius: 10px;
+	color: black;
+	background-color: white;
 }
 
-#openSidebarButton {
-	border-radius: 50%;
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#sidebar-overlay {
+	background-color: black;
+	opacity: 0.7;
 }
 
 #sidebar {
-	position: fixed;
-	box-sizing: border-box;
+	position: absolute;
 	top: 0;
 	left: -300px;
 	width: 300px;
 	height: 100%;
-	z-index: 1000;
+	box-sizing: border-box;
 	background-color: var(--bg-color);
 	border-radius: 0 10px 10px 0;
 	transition: left 0.3s ease;
@@ -129,59 +154,22 @@ header {
 	border-left: none;
 }
 
-#sidebarOptions {
-	display: flex;
-	flex-direction: column;
-	gap: var(--indent);
-	overflow-y: auto;
-}
-
-.sidebarOption, #openSidebarButton {
-	--btn-color: var(--bg-color);
-	--btn-hover-color: rgb(61, 56, 70);
-	--btn-active-color: rgb(94, 92, 100);
-}
-
-.sidebarOption.open {
-	background-color: rgb(145, 65, 172);
-}
-
-#closeSidebarButton {
+#close-sidebar {
 	align-self: flex-end;
 	--btn-color: rgb(224, 27, 36);
 	--btn-hover-color: rgb(192, 28, 40);
 	--btn-active-color: rgb(165, 29, 45);
 }
 
-#openSidebarButton, #closeSidebarButton {
-	width: var(--btn-height);
+#mode-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: var(--indent);
+	overflow-y: auto;
 }
 
-#overlay, .notification {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	visibility: hidden;
-}
-
-#overlay {
-	z-index: 999;
-	opacity: 0;
-	background-color: black;
-}
-
-#overlay.open {
-	visibility: visible;
-	opacity: 0.7;
-}
-
-#counters {
-	justify-content: space-around;
-	border-radius: 10px;
-	color: black;
-	background-color: white;
+#mode-buttons button.selected {
+	background-color: rgb(145, 65, 172);
 }
 
 .notification {
@@ -193,17 +181,16 @@ header {
 	align-items: center;
 	text-align: center;
 	font-size: var(--large-font-size);
-	z-index: 1000;
 }
 
-#correctlyDiv {
+#correctly-overlay {
 	background-color: rgb(38, 162, 105);
 }
 
-#wronglyDiv {
+#wrongly-overlay {
 	background-color: rgb(237, 51, 59);
 }
 
-#correctAnswerP {
+#correct-answer-div {
 	font-size: 24px;
 }
