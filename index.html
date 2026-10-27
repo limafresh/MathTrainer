@@ -13,28 +13,30 @@
 		<script src="script.js" defer></script>
 	</head>
 	<body>
-		<header>
-			<button id="open-sidebar">&#x2630</button>
-			<span id="mode-name"></span>
-		</header>
+		<div id="main">
+			<header>
+				<button id="open-sidebar">&#x2630</button>
+				<span id="mode-name"></span>
+			</header>
 
-		<span id="example">2+2=</span>
-		<input id="answer-input" type="text" placeholder="Enter the answer..." inputmode="numeric">
-		<button id="check">CHECK</button>
-		<button id="skip">Skip this example</button>
+			<span id="example">2+2=</span>
+			<input id="answer-input" type="text" placeholder="Enter the answer..." inputmode="numeric">
+			<button id="check">CHECK</button>
+			<button id="skip">Skip this example</button>
 
-		<div id="counters">
-			<div>
-				<span id="skipped-text">Skipped examples: </span>
-				<span id="skipped">0</span>
-			</div>
-			<div>
-				<span id="solved-text">Solved examples: </span>
-				<span id="solved">0</span>
-			</div>
-			<div>
-				<span id="mistakes-text">Mistakes: </span>
-				<span id="mistakes">0</span>
+			<div id="counters">
+				<div>
+					<span id="skipped-text">Skipped examples: </span>
+					<span id="skipped">0</span>
+				</div>
+				<div>
+					<span id="solved-text">Solved examples: </span>
+					<span id="solved">0</span>
+				</div>
+				<div>
+					<span id="mistakes-text">Mistakes: </span>
+					<span id="mistakes">0</span>
+				</div>
 			</div>
 		</div>
 

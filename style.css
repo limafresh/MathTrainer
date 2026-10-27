@@ -22,22 +22,31 @@ html, body {
 }
 
 body {
+	display: flex;
 	color: white;
 	background-color: var(--bg-color);
 	font-family: 'Noto Sans';
 	font-weight: bold;
-	box-sizing: border-box;
+	overflow: hidden;
 }
 
-body, #counters, #sidebar {
+[hidden] {
+	display: none !important;
+}
+
+#main {
+	overflow: auto;
+}
+
+#main, #counters, #sidebar {
 	display: flex;
 	flex-direction: column;
 	gap: var(--indent);
 	padding: var(--indent);
 }
 
-[hidden] {
-	display: none !important;
+#main, #example, #counters {
+	flex: 1;
 }
 
 header {
@@ -59,10 +68,6 @@ header {
 	--btn-color: var(--bg-color);
 	--btn-hover-color: rgb(61, 56, 70);
 	--btn-active-color: rgb(94, 92, 100);
-}
-
-#example, #counters {
-	flex: 1;
 }
 
 #example {
