@@ -172,6 +172,11 @@ button:active {
 	background-color: rgb(145, 65, 172);
 }
 
+#github {
+	margin-top: auto;
+	color: gray;
+}
+
 .notification {
 	display: flex;
 	flex-direction: column;
